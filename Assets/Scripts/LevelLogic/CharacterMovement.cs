@@ -10,7 +10,7 @@ namespace Characters
 
         private Character _character;
         private List<Vector2> _waypoints;
-        private int _targetWaypointIndex = 0;
+        internal int TargetWaypointIndex { get; private set; } = 0;
 
         private float _speed = 5;
 
@@ -30,12 +30,12 @@ namespace Characters
 
         private void Update()
         {
-            if(_targetWaypointIndex < _waypoints.Count)
+            if(TargetWaypointIndex < _waypoints.Count)
             {
                 SetSpeed();
-                MoveToNextWaypoint(_waypoints[_targetWaypointIndex]);
+                MoveToNextWaypoint(_waypoints[TargetWaypointIndex]);
                 SetRotation();
-                SetWaypointTargetIndex();
+                UpdateWaypointTargetIndex();
             }
             else
             {
@@ -55,19 +55,24 @@ namespace Characters
         //Don't forget to remove in update in this case, too
         private void SetRotation()
         {
-            var direction = _waypoints[_targetWaypointIndex] - (Vector2)_character.transform.position;
+            var direction = _waypoints[TargetWaypointIndex] - (Vector2)_character.transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _character.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
-        private void SetWaypointTargetIndex()
+        private void UpdateWaypointTargetIndex()
         {
-            _targetWaypointIndex += Vector2.Distance(_character.transform.position, _waypoints[_targetWaypointIndex]) < 0.1f ? 1 : 0;
+            TargetWaypointIndex += Vector2.Distance(_character.transform.position, _waypoints[TargetWaypointIndex]) < 0.1f ? 1 : 0;
         }
 
         private void SetSpeed()
         {
             _speed = _character.MovementSpeed;
+        }
+
+        internal void SetWaypointIndex(int index)
+        {
+            TargetWaypointIndex = index;
         }
 
 

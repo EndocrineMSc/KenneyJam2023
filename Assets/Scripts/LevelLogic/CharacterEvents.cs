@@ -7,6 +7,7 @@ namespace Characters
         #region Event Declarations
 
         internal static event Action OnCharacterReachedGoal;
+        internal static event Action OnCharacterDeath;
 
         #endregion
 
@@ -15,6 +16,11 @@ namespace Characters
         internal static void RaiseReachedGoal()
         {
             OnCharacterReachedGoal?.Invoke();
+        }
+
+        internal static void RaiseDeath()
+        {
+            OnCharacterDeath?.Invoke();
         }
 
         #endregion

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5553088892107644025}
-  - component: {fileID: 527844112509919938}
+  - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
-  - component: {fileID: 8819755315803014682}
+  - component: {fileID: -7622246285039095076}
   m_Layer: 0
-  m_Name: LanternMob
+  m_Name: SwarmMob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &527844112509919938
+--- !u!212 &-98490938432586098
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cc0f239253fa14281718d78a89cade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8819755315803014682
+--- !u!114 &-7622246285039095076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,15 +108,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097699033948708273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc96a173221704e41867238fdbab8e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 100cacf2f7428e84db75fa63ff941947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 5
+  Cost: 4
   TargetPriority: 2
-  MaxHealth: 10
-  Health: 10
-  MovementSpeedMultiplier: 1.2
-  LightFadesOnDeath: 0
+  MaxHealth: 5
+  Health: 5
+  MovementSpeedMultiplier: 1
+  LightFadesOnDeath: 1
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 4
+  m_PointLightOuterRadius: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

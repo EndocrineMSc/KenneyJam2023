@@ -1,20 +1,26 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
     internal abstract class Character : MonoBehaviour
     {
-        #region Fields and Functions
+        #region Fields and Properties
 
-        public int Health;
-        public int MaxHealth;
-        public float MovementSpeed;
-        public float MaxMovementSpeed;
+        public int Cost;
         public int TargetPriority;
+        public int MaxHealth;
+        public int Health { get; private protected set; }
+        private float _maxMovementSpeed = 4;
+        public float MovementSpeed { get; private protected set; }
+        public float MovementSpeedMultiplier;
+        public bool LightFadesOnDeath;
 
+        protected Light2D _light;
+        protected readonly float _waitTillDeathTime = 2;
         #endregion
 
         #region Functions
@@ -22,40 +28,57 @@ namespace Characters
         protected virtual void Awake()
         {
             Health = MaxHealth;
-            MovementSpeed = MaxMovementSpeed;
+            _maxMovementSpeed *= MovementSpeedMultiplier;
+            MovementSpeed = _maxMovementSpeed;
+            _light = GetComponentInChildren<Light2D>();
         }
 
         protected bool TakeDamage(int damage)
         {
-            Health -= damage;
+            SubtractDamage(damage);
+            OnDamageEffect();
 
+            // Towers may decide to change target only when the target died
+            return CheckForDeath();
+        }
+
+        protected virtual void SubtractDamage(int damage)
+        {
+            Health -= damage;
+        }
+
+        protected bool CheckForDeath()
+        {
             bool stillAlive = Health <= 0;
 
-            if (!stillAlive) {
+            if (!stillAlive)
+            {
                 StartCoroutine(Die());
                 TargetPriority = -1;
             }
 
-            OnDamageEffect();
-
-            // Towers may decide to change target only when the target died
             return stillAlive;
         }
 
         protected IEnumerator Die()
-        {
-            SpriteRenderer characterSprite = GetComponent<SpriteRenderer>();
-            characterSprite.DOFade(0, 0.5f);
+        {           
+            CharacterEvents.RaiseDeath();
+            HandleDeathLight();
+            FadeSprite();
             OnDeathEffect();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_waitTillDeathTime);
+            
+            StopAllCoroutines();
             Destroy(gameObject);
         }
 
-        internal void SlowCharacter(int slowAmount)
+        internal void SlowCharacter(float slowAmount)
         {
             // Do this multiplicative? Reduce by % of max speed
-            StartCoroutine(RestoreOriginalSpeed(MovementSpeed));
+            StartCoroutine(RestoreOriginalSpeed(_maxMovementSpeed));
             MovementSpeed -= slowAmount;
+            if (MovementSpeed < 0)
+                MovementSpeed = 0;
         }
 
         protected IEnumerator RestoreOriginalSpeed(float speed)
@@ -81,9 +104,40 @@ namespace Characters
                 MovementSpeed = speed;
         }
 
+        protected void FadeSprite()
+        {
+            SpriteRenderer characterSprite = GetComponent<SpriteRenderer>();
+            characterSprite.DOFade(0, (_waitTillDeathTime / 2));
+        }
+
+        protected void HandleDeathLight()
+        {
+            if (LightFadesOnDeath)
+                StartCoroutine(FadeLight());
+            else
+                _light.intensity = 0;
+        }
+
+        protected IEnumerator FadeLight()
+        {
+            float elapsedTime = 0;
+
+            while (elapsedTime < _waitTillDeathTime)
+            {
+                _light.intensity = Mathf.Lerp(_light.intensity, 0, (elapsedTime / _waitTillDeathTime));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            _light.intensity = 0;
+            yield return null;
+        }
+
+
         protected abstract void OnDeathEffect();
 
         protected abstract void OnDamageEffect();
+
 
         #endregion
     }
