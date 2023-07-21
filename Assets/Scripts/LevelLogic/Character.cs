@@ -10,19 +10,44 @@ namespace Characters
         #region Fields and Functions
 
         internal int Health { get; private set; }
+        [SerializeField]
+        internal int MaxHealth { get; private set; }
 
-        internal float MovementSpeed { get; private set; } = 5;
+        internal float MovementSpeed { get; private set; }
+        [SerializeField]
+        internal int MaxMovementSpeed { get; private set; }
+
+        [SerializeField]
+        internal int TargetPriority { get; private set; }
+
+        #endregion
+
+        #region Constructor
+
+        public Character() {
+            Health = MaxHealth;
+            MovenentSpeed = MaxMovementSpeed;
+        }
 
         #endregion
 
         #region Functions
 
-        protected void TakeDamage(int damage)
+        protected bool TakeDamage(int damage)
         {
             Health -= damage;
 
-            if (Health <= 0)
+            stillAlive = Health <= 0;
+
+            if (!stillAlive) {
                 StartCoroutine(Die());
+                TargetPriority = -1;
+            }
+
+            // Maybe trigger an event here, if we want to react to this somehow (Scavanger idea)
+
+            // Towers may decide to change target only when the target died
+            return stillAlive;
         }
 
         protected IEnumerator Die()
@@ -37,6 +62,7 @@ namespace Characters
 
         internal void SlowCharacter(int slowAmount)
         {
+            // Do this multiplicative? Reduce by % of max speed
             StartCoroutine(RestoreOriginalSpeed(MovementSpeed));
             MovementSpeed -= slowAmount;
         }

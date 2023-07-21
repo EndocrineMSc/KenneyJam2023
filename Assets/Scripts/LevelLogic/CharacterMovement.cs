@@ -47,6 +47,8 @@ namespace Characters
         private void MoveToNextWaypoint(Vector2 waypoint)
         {
             _character.transform.position = Vector2.MoveTowards(_character.transform.position, waypoint, _speed * Time.deltaTime);
+
+            // Raise event if we want to use the start waitpoints as a "checkpoint" or do something there
         }
 
         //Can be deleted or commented out if it looks weird in the final thing
