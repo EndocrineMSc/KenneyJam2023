@@ -13,6 +13,7 @@ namespace Characters
         internal int TargetWaypointIndex { get; private set; } = 0;
 
         private float _speed = 5;
+        private bool _hasReachedGoal;
 
         #endregion
 
@@ -30,18 +31,23 @@ namespace Characters
 
         private void Update()
         {
-            if(TargetWaypointIndex < _waypoints.Count)
+            if (!_hasReachedGoal)
             {
-                SetSpeed();
-                MoveToNextWaypoint(_waypoints[TargetWaypointIndex]);
-                SetRotation();
-                UpdateWaypointTargetIndex();
+                if (TargetWaypointIndex < _waypoints.Count)
+                {
+                    SetSpeed();
+                    MoveToNextWaypoint(_waypoints[TargetWaypointIndex]);
+                    SetRotation();
+                    UpdateWaypointTargetIndex();
+                }
+                else
+                {
+                    _hasReachedGoal = true;
+                    CharacterEvents.RaiseReachedGoal(gameObject);
+                    StartCoroutine(_character.Die(_hasReachedGoal));
+                }
             }
-            else
-            {
-                CharacterEvents.RaiseReachedGoal();
-                Destroy(gameObject);
-            }
+
         }
 
         private void MoveToNextWaypoint(Vector2 waypoint)

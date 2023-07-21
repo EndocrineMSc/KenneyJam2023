@@ -116,6 +116,7 @@ MonoBehaviour:
   MaxHealth: 14
   MovementSpeedMultiplier: 0.9
   LightFadesOnDeath: 0
+  MobName: 6
   _swarmy: {fileID: -7622246285039095076, guid: f8866de4ea33f444585856f0419af91f, type: 3}
 --- !u!1 &2645621463980648706
 GameObject:

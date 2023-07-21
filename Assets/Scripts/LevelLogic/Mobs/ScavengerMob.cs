@@ -26,9 +26,10 @@ namespace Characters
             //none
         }
 
-        private void GainCurrency()
+        private void GainCurrency(GameObject characterObject)
         {
-            //ToDo: whatever Currency +1, where Currency is stored
+            var amountCurrency = characterObject.GetComponent<Character>().TargetPriority;
+            //ToDo: whatever Currency + amountCurrency, where Currency is stored
         }
     }
 }

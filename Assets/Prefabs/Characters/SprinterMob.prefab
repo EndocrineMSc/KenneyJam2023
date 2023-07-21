@@ -116,6 +116,7 @@ MonoBehaviour:
   MaxHealth: 6
   MovementSpeedMultiplier: 2
   LightFadesOnDeath: 1
+  MobName: 5
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0

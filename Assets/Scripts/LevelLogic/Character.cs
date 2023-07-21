@@ -18,6 +18,7 @@ namespace Characters
         public float MovementSpeed { get; private protected set; }
         public float MovementSpeedMultiplier;
         public bool LightFadesOnDeath;
+        public Mob MobName;
 
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
@@ -52,20 +53,21 @@ namespace Characters
             bool stillAlive = Health <= 0;
 
             if (!stillAlive)
-            {
                 StartCoroutine(Die());
-                TargetPriority = -1;
-            }
 
             return stillAlive;
         }
 
-        protected IEnumerator Die()
-        {           
-            CharacterEvents.RaiseDeath();
+        internal IEnumerator Die(bool hasReachedGoal = false)
+        {      
+            if(!hasReachedGoal)
+            {
+                CharacterEvents.RaiseDeath(gameObject);
+                OnDeathEffect();
+            }
+            TargetPriority = -1;
             HandleDeathLight();
             FadeSprite();
-            OnDeathEffect();
             yield return new WaitForSeconds(_waitTillDeathTime);
             
             StopAllCoroutines();
