@@ -222,3 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc96a173221704e41867238fdbab8e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 10
+  MaxMovementSpeed: 5
+  TargetPriority: 2

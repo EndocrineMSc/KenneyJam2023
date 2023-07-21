@@ -9,25 +9,16 @@ namespace Characters
     {
         #region Fields and Functions
 
-        internal int Health { get; private set; }
+        internal float Health { get; private set; }
         [SerializeField]
-        internal int MaxHealth { get; private set; }
+        public int MaxHealth;
 
         internal float MovementSpeed { get; private set; }
         [SerializeField]
-        internal int MaxMovementSpeed { get; private set; }
-
+        public float MaxMovementSpeed;
+        
         [SerializeField]
-        internal int TargetPriority { get; private set; }
-
-        #endregion
-
-        #region Constructor
-
-        public Character() {
-            Health = MaxHealth;
-            MovementSpeed = MaxMovementSpeed;
-        }
+        public int TargetPriority;
 
         #endregion
 
@@ -88,6 +79,12 @@ namespace Characters
             
             if (MovementSpeed != speed)
                 MovementSpeed = speed;
+        }
+
+        public void Awake()
+        {
+            Health = MaxHealth;
+            MovementSpeed = MaxMovementSpeed;
         }
 
         protected abstract void OnDeathEffect();
