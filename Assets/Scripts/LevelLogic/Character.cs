@@ -1,23 +1,71 @@
+using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
-    internal class Character : MonoBehaviour
+    internal abstract class Character : MonoBehaviour
     {
-        private void OnEnable()
+        #region Fields and Functions
+
+        internal int Health { get; private set; }
+
+        internal float MovementSpeed { get; private set; } = 5;
+
+        #endregion
+
+        #region Functions
+
+        protected void TakeDamage(int damage)
         {
-            CharacterEvents.OnCharacterReachedGoal += TestDebug; //only for testing
+            Health -= damage;
+
+            if (Health <= 0)
+                StartCoroutine(Die());
         }
 
-        private void OnDisable()
+        protected IEnumerator Die()
         {
-            CharacterEvents.OnCharacterReachedGoal -= TestDebug;
+            SpriteRenderer characterSprite = GetComponent<SpriteRenderer>();
+            characterSprite.DOFade(0, 0.5f);
+            OnDeathEffect();
+            yield return new WaitForSeconds(0.5f);
+            Destroy(gameObject);
         }
 
-        private void TestDebug()
+
+        internal void SlowCharacter(int slowAmount)
         {
-            Debug.Log("Character has arrived at final destination!");
+            StartCoroutine(RestoreOriginalSpeed(MovementSpeed));
+            MovementSpeed -= slowAmount;
         }
+
+        protected IEnumerator RestoreOriginalSpeed(float speed)
+        {
+            var restoreSpeed = 0.5f;
+            var whileCounter = 0;
+            yield return new WaitForSeconds(restoreSpeed);
+            
+            while (MovementSpeed < speed)
+            {
+                if (whileCounter > 50)
+                {
+                    Debug.Log("Slow while loop safety quit triggered!");
+                    break;
+                }
+
+                MovementSpeed += 0.5f;
+                yield return new WaitForSeconds(restoreSpeed);
+                whileCounter++;
+            }
+            
+            if (MovementSpeed != speed)
+                MovementSpeed = speed;
+        }
+
+        protected abstract void OnDeathEffect();
+
+        #endregion
     }
 }

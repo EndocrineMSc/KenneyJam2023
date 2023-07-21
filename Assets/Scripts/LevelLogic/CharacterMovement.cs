@@ -12,7 +12,7 @@ namespace Characters
         private List<Vector2> _waypoints;
         private int _targetWaypointIndex = 0;
 
-        [SerializeField] private float _speed = 5;
+        private float _speed = 5;
 
         #endregion
 
@@ -32,6 +32,7 @@ namespace Characters
         {
             if(_targetWaypointIndex < _waypoints.Count)
             {
+                SetSpeed();
                 MoveToNextWaypoint(_waypoints[_targetWaypointIndex]);
                 SetRotation();
                 SetWaypointTargetIndex();
@@ -41,11 +42,6 @@ namespace Characters
                 CharacterEvents.RaiseReachedGoal();
                 Destroy(gameObject);
             }
-        }
-
-        private void SetWaypointTargetIndex()
-        {
-            _targetWaypointIndex += Vector2.Distance(_character.transform.position, _waypoints[_targetWaypointIndex]) < 0.1f ? 1 : 0;
         }
 
         private void MoveToNextWaypoint(Vector2 waypoint)
@@ -61,6 +57,17 @@ namespace Characters
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _character.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
+        private void SetWaypointTargetIndex()
+        {
+            _targetWaypointIndex += Vector2.Distance(_character.transform.position, _waypoints[_targetWaypointIndex]) < 0.1f ? 1 : 0;
+        }
+
+        private void SetSpeed()
+        {
+            _speed = _character.MovementSpeed;
+        }
+
 
         #endregion
     }
