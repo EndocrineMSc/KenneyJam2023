@@ -5,7 +5,7 @@ using DG.Tweening;
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
-    internal abstract class Character : MonoBehaviour
+    public abstract class Character : MonoBehaviour
     {
         #region Fields and Functions
 
