@@ -26,7 +26,7 @@ namespace Characters
 
         public Character() {
             Health = MaxHealth;
-            MovenentSpeed = MaxMovementSpeed;
+            MovementSpeed = MaxMovementSpeed;
         }
 
         #endregion
@@ -37,7 +37,7 @@ namespace Characters
         {
             Health -= damage;
 
-            stillAlive = Health <= 0;
+            bool stillAlive = Health <= 0;
 
             if (!stillAlive) {
                 StartCoroutine(Die());
