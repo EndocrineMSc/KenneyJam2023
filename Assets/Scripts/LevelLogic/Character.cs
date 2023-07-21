@@ -9,20 +9,21 @@ namespace Characters
     {
         #region Fields and Functions
 
-        internal float Health { get; private set; }
-        [SerializeField]
+        public int Health;
         public int MaxHealth;
-
-        internal float MovementSpeed { get; private set; }
-        [SerializeField]
+        public float MovementSpeed;
         public float MaxMovementSpeed;
-        
-        [SerializeField]
         public int TargetPriority;
 
         #endregion
 
         #region Functions
+
+        protected virtual void Awake()
+        {
+            Health = MaxHealth;
+            MovementSpeed = MaxMovementSpeed;
+        }
 
         protected bool TakeDamage(int damage)
         {
@@ -35,7 +36,7 @@ namespace Characters
                 TargetPriority = -1;
             }
 
-            // Maybe trigger an event here, if we want to react to this somehow (Scavanger idea)
+            OnDamageEffect();
 
             // Towers may decide to change target only when the target died
             return stillAlive;
@@ -49,7 +50,6 @@ namespace Characters
             yield return new WaitForSeconds(0.5f);
             Destroy(gameObject);
         }
-
 
         internal void SlowCharacter(int slowAmount)
         {
@@ -81,13 +81,9 @@ namespace Characters
                 MovementSpeed = speed;
         }
 
-        public void Awake()
-        {
-            Health = MaxHealth;
-            MovementSpeed = MaxMovementSpeed;
-        }
-
         protected abstract void OnDeathEffect();
+
+        protected abstract void OnDamageEffect();
 
         #endregion
     }
