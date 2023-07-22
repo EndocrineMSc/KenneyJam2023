@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Characters
 {
     internal class ScavengerMob : Character
     {
+        [SerializeField] private CurrencyPopup _currencyPrefab;
+
         private void OnEnable()
         {
             CharacterEvents.OnCharacterDeath += GainCurrency;
@@ -29,7 +32,8 @@ namespace Characters
         private void GainCurrency(GameObject characterObject)
         {
             var amountCurrency = characterObject.GetComponent<Character>().TargetPriority;
-            //ToDo: whatever Currency + amountCurrency, where Currency is stored
+            PlayerData.AddCurrency(amountCurrency);
+            Instantiate(_currencyPrefab, transform.position, Quaternion.identity);
         }
     }
 }

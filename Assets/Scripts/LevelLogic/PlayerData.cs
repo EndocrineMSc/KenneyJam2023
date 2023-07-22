@@ -25,6 +25,11 @@ namespace Utility
             Currency -= amount;
         }
 
+        internal static void AddCurrency(int amount)
+        {
+            Currency += amount;
+        }
+
         internal static void ReduceGoalCounter() 
         { 
             MobGoalCounter--; 

@@ -27,7 +27,7 @@ namespace Characters
             int charIndex = 0;
             for (int enumIndex = 0; enumIndex < _sortedEnum.Count; enumIndex++)
             {
-                if (charIndex < _characterList.Count && _sortedEnum[enumIndex] == _characterList[charIndex].GetComponent<Character>().MobName)
+                if (charIndex < _characterList.Count && _sortedEnum[enumIndex] == _characterList[charIndex].GetComponent<Character>().MobEnumEntry)
                 {
                     AllMobs.Add(_sortedEnum[enumIndex], _characterList[charIndex]);
                     charIndex++;

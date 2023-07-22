@@ -54,9 +54,14 @@ namespace Characters
                 ActiveCharacters.Remove(characterObject);
         }
 
-        public void TestSpawn()
+        public void TestSpawnLantern()
         {
             SpawnMob(Mob.Lantern);
+        }
+
+        public void TestSpawnScavenger()
+        {
+            SpawnMob(Mob.Scavenger);
         }
 
         #endregion
