@@ -9,8 +9,7 @@ namespace Utility
         #region Fields and Properties
 
         internal static int Currency { get; private set; } = 200;
-        internal static int MobGoalCounter { get; private set; } = 0;
-        internal static int TargetGoalCounter { get; private set; } = 5;
+        internal static int MobGoalCounter { get; private set; } = 5;
 
         #endregion
 
@@ -26,14 +25,14 @@ namespace Utility
             Currency -= amount;
         }
 
-        internal static void AddToGoalCounter() 
+        internal static void ReduceGoalCounter() 
         { 
-            MobGoalCounter++; 
+            MobGoalCounter--; 
         }
 
         internal static bool CheckForPlayerWin()
         {
-            return MobGoalCounter >= TargetGoalCounter;
+            return MobGoalCounter <= 0;
         }
 
         #endregion

@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
   m_Name: LanternMobData
   m_EditorClassIdentifier: 
-  TooltipDescription: 'Lantern Bug
-
-    This speedy bug lights your way. It will
-    drop its light when dying, permanently illuminating the surroundings where it
-    died.
-
-    Health: 10'
+  TooltipDescription: "Lantern Bug\n\nThis speedy bug lights your way. It will drop
+    its light when dying, \npermanently illuminating the surroundings where it died.\n\nHealth:
+    10"
