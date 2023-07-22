@@ -32,8 +32,11 @@ namespace Characters
         private void GainCurrency(GameObject characterObject)
         {
             var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
-            PlayerData.AddCurrency(amountCurrency);
-            StartCoroutine(SpawnCoins(amountCurrency));
+            if (characterObject != this.gameObject)
+            {
+                PlayerData.AddCurrency(amountCurrency);
+                StartCoroutine(SpawnCoins(amountCurrency));
+            }
         }
 
         private IEnumerator SpawnCoins(int amount)
