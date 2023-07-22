@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Characters
 {
@@ -6,21 +7,21 @@ namespace Characters
     {
         #region Event Declarations
 
-        internal static event Action OnCharacterReachedGoal;
-        internal static event Action OnCharacterDeath;
+        internal static event Action<GameObject> OnCharacterReachedGoal;
+        internal static event Action<GameObject> OnCharacterDeath;
 
         #endregion
 
         #region Event Functions
 
-        internal static void RaiseReachedGoal()
+        internal static void RaiseReachedGoal(GameObject characterObject)
         {
-            OnCharacterReachedGoal?.Invoke();
+            OnCharacterReachedGoal?.Invoke(characterObject);
         }
 
-        internal static void RaiseDeath()
+        internal static void RaiseDeath(GameObject characterObject)
         {
-            OnCharacterDeath?.Invoke();
+            OnCharacterDeath?.Invoke(characterObject);
         }
 
         #endregion

@@ -116,6 +116,7 @@ MonoBehaviour:
   MaxHealth: 4
   MovementSpeedMultiplier: 1
   LightFadesOnDeath: 0
+  MobName: 7
   MaxShield: 20
   _shieldGenerationTimer: 1
 --- !u!1 &2645621463980648706

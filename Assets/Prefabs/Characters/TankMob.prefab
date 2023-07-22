@@ -114,9 +114,9 @@ MonoBehaviour:
   Cost: 10
   TargetPriority: 1
   MaxHealth: 50
-  Health: 50
   MovementSpeedMultiplier: 0.8
   LightFadesOnDeath: 0
+  MobName: 1
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
