@@ -1,4 +1,5 @@
 using Characters;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,7 +25,7 @@ namespace Towers
         public float TravelSpeed;
         
         internal GameObject currentTarget;
-        
+                
         internal Turret TurretName;
 
         protected Projectile projectile;
@@ -65,12 +66,13 @@ namespace Towers
             if (currentTarget != null && Time.time >= nextShoot)
             {
                 AnimateProjectile();
+                // Wait for? MapControllerHelper.GetDistance(this.transform.position, currentTarget.transform.position) * TravelSpeed
                 Shoot();
                 nextShoot = Time.time + attackSpeed;
             }
         }
 
-        protected void AnimateProjectile()
+        protected virtual void AnimateProjectile()
         {
             if (projectile == null)
                 return;

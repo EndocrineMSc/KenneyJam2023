@@ -11,6 +11,14 @@ namespace Towers
         [SerializeField]
         public int AreaOfEffect;
 
+        protected ParticleSystem explosion;
+
+        public void Awake()
+        {
+            explosion = GetComponentInChildren<ParticleSystem>();
+            
+        }
+
         protected override void Shoot()
         {
             MapControllerHelper.FindCharactersInRange(currentTarget.transform.position, AreaOfEffect).
@@ -22,6 +30,13 @@ namespace Towers
         protected override void SelectTarget()
         {
             currentTarget = MapControllerHelper.FindHighestPriorityInRange(this.transform.position, Range);
+        }
+
+        protected override void AnimateProjectile()
+        {
+            base.AnimateProjectile();
+
+            Instantiate(explosion, currentTarget.transform.position, currentTarget.transform.rotation);
         }
     }
 
