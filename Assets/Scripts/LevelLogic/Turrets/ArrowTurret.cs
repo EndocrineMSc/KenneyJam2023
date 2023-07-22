@@ -9,6 +9,12 @@ namespace Towers {
         {
             currentTarget = MapControllerHelper.FindClosestCharacterInRange(this.gameObject.transform.position, Range);
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position, Range);
+        }
     }
 
 }

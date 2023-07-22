@@ -16,5 +16,11 @@ namespace Towers {
                 currentTarget = null;
             }
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(transform.position, Range);
+        }
     }
 }

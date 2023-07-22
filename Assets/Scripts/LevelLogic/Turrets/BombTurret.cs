@@ -9,7 +9,7 @@ namespace Towers
     internal class BombTurret : Tower
     {
         [SerializeField]
-        public int AreaOfEffect;
+        public float AreaOfEffect;
 
         protected ParticleSystem explosion;
 
@@ -37,6 +37,12 @@ namespace Towers
             base.AnimateProjectile();
 
             Instantiate(explosion, currentTarget.transform.position, currentTarget.transform.rotation);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawSphere(transform.position, Range);
         }
     }
 

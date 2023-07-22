@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22c6b46d13b43a41899fa39ea5e118a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 14
+  Range: 4
   damage: 6
   attackSpeed: 2
   TravelSpeed: 60

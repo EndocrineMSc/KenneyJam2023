@@ -14,7 +14,7 @@ namespace Towers
     {
         #region Fields and Functions
         [SerializeField]
-        public int Range ;
+        public float Range ;
 
         [SerializeField]
         public int damage;

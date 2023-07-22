@@ -11,14 +11,14 @@ internal static class MapControllerHelper
     /*
      * Returns a list of all characters in range
      */
-    internal static List<GameObject> FindCharactersInRange(Vector3 origin, int range)
+    internal static List<GameObject> FindCharactersInRange(Vector3 origin, float range)
     {
         List<GameObject> loadedCharacters = CharacterSpawner.Instance.ActiveCharacters;
 
         return loadedCharacters.FindAll(character => GetDistance(origin, character.transform.position) <= range);
      }
 
-    internal static GameObject FindFurthestAdvancedCharacterInRange(Vector2 origin, int range) {
+    internal static GameObject FindFurthestAdvancedCharacterInRange(Vector2 origin, float range) {
 
         List<Character> charactersInRange = new();
 
@@ -26,13 +26,13 @@ internal static class MapControllerHelper
             OrderBy(character => character.GetComponent<Character>()).FirstOrDefault();
     }
 
-    internal static GameObject FindHighestPriorityInRange(Vector2 origin, int range) { 
+    internal static GameObject FindHighestPriorityInRange(Vector2 origin, float range) { 
 
         return FindCharactersInRange(origin, range).
                 OrderBy(character => character.GetComponent<Character>().TargetPriority).FirstOrDefault();
     }
 
-    internal static GameObject FindClosestCharacterInRange(Vector3 origin, int range)
+    internal static GameObject FindClosestCharacterInRange(Vector3 origin, float range)
     {
         float lowestDistance = int.MaxValue;
         GameObject closestCharacter = null;

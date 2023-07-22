@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad88b9c85d81ee419a55c6675f66aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 30
+  Range: 2
   damage: 6
   attackSpeed: 3
   TravelSpeed: 35
-  AreaOfEffect: 4
+  AreaOfEffect: 0.8
 --- !u!1 &6993825621962997682
 GameObject:
   m_ObjectHideFlags: 0

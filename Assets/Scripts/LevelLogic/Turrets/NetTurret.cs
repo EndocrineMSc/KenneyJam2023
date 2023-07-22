@@ -11,7 +11,7 @@ namespace Towers
     internal class NetTurret : Tower
     {
         [SerializeField]
-        public int AreaOfEffect;
+        public float AreaOfEffect;
 
         protected override void SelectTarget()
         {
@@ -33,6 +33,12 @@ namespace Towers
 
             // TODO: Should SET the speed to the slowest
             charactersInAoE.ForEach(character => character.GetComponent<Character>().SlowCharacter(lowestSpeed/10));
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, Range);
         }
     }
 }

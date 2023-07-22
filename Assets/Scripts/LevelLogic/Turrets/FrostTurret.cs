@@ -15,6 +15,12 @@ namespace Towers
             base.Shoot();
             currentTarget.GetComponent<Character>().SlowCharacter(SlowAmount);
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawSphere(transform.position, Range);
+        }
     }
 
 }
