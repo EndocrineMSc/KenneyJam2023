@@ -47,7 +47,6 @@ namespace Characters
                     StartCoroutine(_character.Die(_hasReachedGoal));
                 }
             }
-
         }
 
         private void MoveToNextWaypoint(Vector2 waypoint)

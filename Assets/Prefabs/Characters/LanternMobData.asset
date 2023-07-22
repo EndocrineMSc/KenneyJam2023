@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
   m_Name: LanternMobData
   m_EditorClassIdentifier: 
-  Cost: 5
-  TargetPriority: 2
-  MaxHealth: 10
-  MovementSpeedMultiplier: 1.2
-  LightFadesOnDeath: 0
-  MobEnumEntry: 0
-  MobName: Lantern Bug
-  MobSprite: {fileID: 21300000, guid: 793959ac751f43d4cbb76ef3ef630b25, type: 3}
+  TooltipDescription: 'Lantern Bug
+
+    This speedy bug lights your way. It will
+    drop its light when dying, permanently illuminating the surroundings where it
+    died.
+
+    Health: 10'
