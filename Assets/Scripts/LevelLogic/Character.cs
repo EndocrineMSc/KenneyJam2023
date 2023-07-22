@@ -1,61 +1,86 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
     public abstract class Character : MonoBehaviour
     {
-        #region Fields and Functions
+        #region Fields and Properties
 
-        internal float Health { get; private set; }
-        [SerializeField]
-        public int MaxHealth;
-
-        internal float MovementSpeed { get; private set; }
-        [SerializeField]
-        public float MaxMovementSpeed;
-        
-        [SerializeField]
+        public int Cost;
         public int TargetPriority;
+        public int MaxHealth;
+        public int Health { get; private protected set; }
+        private float _maxMovementSpeed = 4;
+        public float MovementSpeed { get; private protected set; }
+        public float MovementSpeedMultiplier;
+        public bool LightFadesOnDeath;
+        public Mob MobName;
 
+        protected Light2D _light;
+        protected readonly float _waitTillDeathTime = 2;
         #endregion
 
         #region Functions
 
+        protected virtual void Awake()
+        {
+            Health = MaxHealth;
+            _maxMovementSpeed *= MovementSpeedMultiplier;
+            MovementSpeed = _maxMovementSpeed;
+            _light = GetComponentInChildren<Light2D>();
+        }
+
         protected bool TakeDamage(int damage)
         {
-            Health -= damage;
-
-            bool stillAlive = Health <= 0;
-
-            if (!stillAlive) {
-                StartCoroutine(Die());
-                TargetPriority = -1;
-            }
-
-            // Maybe trigger an event here, if we want to react to this somehow (Scavanger idea)
+            SubtractDamage(damage);
+            OnDamageEffect();
 
             // Towers may decide to change target only when the target died
+            return CheckForDeath();
+        }
+
+        protected virtual void SubtractDamage(int damage)
+        {
+            Health -= damage;
+        }
+
+        protected bool CheckForDeath()
+        {
+            bool stillAlive = Health <= 0;
+
+            if (!stillAlive)
+                StartCoroutine(Die());
+
             return stillAlive;
         }
 
-        protected IEnumerator Die()
-        {
-            SpriteRenderer characterSprite = GetComponent<SpriteRenderer>();
-            characterSprite.DOFade(0, 0.5f);
-            OnDeathEffect();
-            yield return new WaitForSeconds(0.5f);
+        internal IEnumerator Die(bool hasReachedGoal = false)
+        {      
+            if(!hasReachedGoal)
+            {
+                CharacterEvents.RaiseDeath(gameObject);
+                OnDeathEffect();
+            }
+            TargetPriority = -1;
+            HandleDeathLight();
+            FadeSprite();
+            yield return new WaitForSeconds(_waitTillDeathTime);
+            
+            StopAllCoroutines();
             Destroy(gameObject);
         }
 
-
-        internal void SlowCharacter(int slowAmount)
+        internal void SlowCharacter(float slowAmount)
         {
             // Do this multiplicative? Reduce by % of max speed
-            StartCoroutine(RestoreOriginalSpeed(MovementSpeed));
+            StartCoroutine(RestoreOriginalSpeed(_maxMovementSpeed));
             MovementSpeed -= slowAmount;
+            if (MovementSpeed < 0)
+                MovementSpeed = 0;
         }
 
         protected IEnumerator RestoreOriginalSpeed(float speed)
@@ -81,13 +106,40 @@ namespace Characters
                 MovementSpeed = speed;
         }
 
-        public void Awake()
+        protected void FadeSprite()
         {
-            Health = MaxHealth;
-            MovementSpeed = MaxMovementSpeed;
+            SpriteRenderer characterSprite = GetComponent<SpriteRenderer>();
+            characterSprite.DOFade(0, (_waitTillDeathTime / 2));
         }
 
+        protected void HandleDeathLight()
+        {
+            if (LightFadesOnDeath)
+                StartCoroutine(FadeLight());
+            else
+                _light.intensity = 0;
+        }
+
+        protected IEnumerator FadeLight()
+        {
+            float elapsedTime = 0;
+
+            while (elapsedTime < _waitTillDeathTime)
+            {
+                _light.intensity = Mathf.Lerp(_light.intensity, 0, (elapsedTime / _waitTillDeathTime));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            _light.intensity = 0;
+            yield return null;
+        }
+
+
         protected abstract void OnDeathEffect();
+
+        protected abstract void OnDamageEffect();
+
 
         #endregion
     }
