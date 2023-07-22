@@ -55,7 +55,7 @@ namespace Characters
         {
             SubtractDamage(damage);
             OnDamageEffect();
-
+            Debug.Log(Health);
             // Towers may decide to change target only when the target died
             return CheckForDeath();
         }
@@ -67,7 +67,7 @@ namespace Characters
 
         protected bool CheckForDeath()
         {
-            bool stillAlive = Health <= 0;
+            bool stillAlive = Health >= 0;
 
             if (!stillAlive)
                 StartCoroutine(Die());
@@ -82,12 +82,12 @@ namespace Characters
                 CharacterEvents.RaiseDeath(gameObject);
                 OnDeathEffect();
             }
+            MovementSpeed = 0;
             TargetPriority = -1;
             HandleDeathLight();
             FadeSprite();
             yield return new WaitForSeconds(_waitTillDeathTime);
             
-            StopAllCoroutines();
             Destroy(gameObject);
         }
 

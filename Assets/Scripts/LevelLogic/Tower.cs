@@ -44,7 +44,7 @@ namespace Towers
 
         protected virtual void Shoot()
         {
-            bool KilledTarget = currentTarget.GetComponent<Characters.Character>().TakeDamage(damage);
+            bool KilledTarget = !currentTarget.GetComponent<Characters.Character>().TakeDamage(damage);
 
             // Only relevant for gun-type towers (they only switch target on kill)
             if (KilledTarget)
@@ -55,6 +55,7 @@ namespace Towers
         void Awake()
         {
             projectile = this.GetComponent<Projectile>();
+            nextShoot = Time.time;
         }
 
         // Update is called once per frame
