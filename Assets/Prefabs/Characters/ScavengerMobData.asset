@@ -20,3 +20,15 @@ MonoBehaviour:
   MobEnumEntry: 3
   MobName: Scavy
   MobSprite: {fileID: 21300000, guid: 0abf1e5abc55a424ab09fa01222bd8c3, type: 3}
+  TooltipDescription: 'Scavy
+
+
+    Gathers loot from fallen comrades when they die,
+
+    depending
+    on their target priority by turrets.
+
+
+    Health: 12
+
+    Speed: 1.6'
