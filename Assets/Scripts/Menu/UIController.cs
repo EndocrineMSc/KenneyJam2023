@@ -19,6 +19,8 @@ public class UIController : MonoBehaviour
 
     public void MusicVolume()
     {
+        float volume = _musicSlider.value > 0 ? Mathf.Log(_musicSlider.value) * 20f : -80f;
+        
         AudioManager.Instance.MusicVolume(_musicSlider.value);
     }
 
