@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5553088892107644025}
   - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
-  - component: {fileID: 8819755315803014682}
+  - component: {fileID: 8172997419787003196}
   m_Layer: 0
   m_Name: TankMob
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cc0f239253fa14281718d78a89cade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8819755315803014682
+--- !u!114 &8172997419787003196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,16 +108,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097699033948708273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc96a173221704e41867238fdbab8e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: b5d19f525b9bab24bac20c364b76f29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobData: {fileID: 11400000, guid: d08a7455721aa3541a50da399e94cf61, type: 2}
-  Cost: 10
-  TargetPriority: 1
-  MaxHealth: 50
-  MovementSpeedMultiplier: 0.8
-  LightFadesOnDeath: 0
-  MobName: 1
+  _mobData: {fileID: 11400000, guid: d08a7455721aa3541a50da399e94cf61, type: 2}
+  MobEnumEntry: 1
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0

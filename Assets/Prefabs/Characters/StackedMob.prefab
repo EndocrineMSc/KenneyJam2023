@@ -111,13 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebd4dca8502bc84b98f21ccd9165396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobData: {fileID: 11400000, guid: 6ad436b0f82c5204cbf7f27d9e124a8c, type: 2}
-  Cost: 6
-  TargetPriority: 1
-  MaxHealth: 14
-  MovementSpeedMultiplier: 0.9
-  LightFadesOnDeath: 0
-  MobName: 6
+  _mobData: {fileID: 11400000, guid: 6ad436b0f82c5204cbf7f27d9e124a8c, type: 2}
+  MobEnumEntry: 6
   _swarmy: {fileID: -7622246285039095076, guid: f8866de4ea33f444585856f0419af91f, type: 3}
 --- !u!1 &2645621463980648706
 GameObject:

@@ -21,8 +21,8 @@ namespace Characters
             AllMobs ??= new();
 
             _sortedEnum = Enum.GetValues(typeof(Mob)).Cast<Mob>().ToList();
-            _sortedEnum.Sort();
-            _characterList = _characterList.OrderBy(go => go.name).ToList();
+            _sortedEnum = _sortedEnum.OrderBy(x => x.ToString()).ToList();
+            _characterList = _characterList.OrderBy(go => go.GetComponent<Character>().MobEnumEntry.ToString()).ToList();
 
             int charIndex = 0;
             for (int enumIndex = 0; enumIndex < _sortedEnum.Count; enumIndex++)

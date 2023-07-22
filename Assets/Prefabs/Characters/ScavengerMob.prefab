@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mobData: {fileID: 11400000, guid: bd6da7fc89fbbfb49912861755d060e7, type: 2}
+  MobEnumEntry: 3
   _currencyPrefab: {fileID: 5391807429960037870, guid: 34d9a206ea995b04d8c8659b548d6281, type: 3}
 --- !u!1 &2645621463980648706
 GameObject:
