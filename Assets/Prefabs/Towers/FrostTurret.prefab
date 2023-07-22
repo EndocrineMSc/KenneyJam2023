@@ -102,6 +102,7 @@ MonoBehaviour:
   damage: 2
   attackSpeed: 1.2
   TravelSpeed: 40
+  tooltipDescription: Slows mobs when they are hit
   SlowAmount: 0.8
 --- !u!1 &6998627417076946005
 GameObject:

@@ -103,6 +103,7 @@ MonoBehaviour:
   damage: 6
   attackSpeed: 3
   TravelSpeed: 35
+  tooltipDescription: Shoots bombs, dealing AOE damage.
   AreaOfEffect: 0.8
 --- !u!1 &6993825621962997682
 GameObject:
