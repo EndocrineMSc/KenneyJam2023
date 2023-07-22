@@ -3848,6 +3848,18 @@ MonoBehaviour:
   sfxSounds:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: fbe004b374185454ea447a188a9c7ec3, type: 3}
+  - name: Spawn
+    clip: {fileID: 8300000, guid: 42297fa45ffd844429585cac352df5e1, type: 3}
+  - name: Arrow
+    clip: {fileID: 8300000, guid: 63ee3cf291a2c044e913aef1fdabb713, type: 3}
+  - name: Bomb
+    clip: {fileID: 8300000, guid: 6f1036224d8dfc04ebecbca2a7abcfa9, type: 3}
+  - name: Frost
+    clip: {fileID: 8300000, guid: fa8d15592ce4a2f4c8ac6458a06eea3e, type: 3}
+  - name: MG
+    clip: {fileID: 8300000, guid: 460df57b12eb34f43bf94f60ccbd6771, type: 3}
+  - name: Sniper
+    clip: {fileID: 8300000, guid: be6cff5a24dbc0447ab4476e3cb01396, type: 3}
   musicSource: {fileID: 430163601}
   sfxSource: {fileID: 1452978598}
 --- !u!4 &1610014212
