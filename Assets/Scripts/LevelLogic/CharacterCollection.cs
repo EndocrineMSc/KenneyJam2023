@@ -21,8 +21,8 @@ namespace Characters
             AllMobs ??= new();
 
             _sortedEnum = Enum.GetValues(typeof(Mob)).Cast<Mob>().ToList();
-            _sortedEnum = _sortedEnum.OrderBy(x => x.ToString()).ToList();
-            _characterList = _characterList.OrderBy(go => go.GetComponent<Character>().MobEnumEntry).ToList();
+            _sortedEnum.Sort();
+            _characterList = _characterList.OrderBy(go => go.name).ToList();
 
             int charIndex = 0;
             for (int enumIndex = 0; enumIndex < _sortedEnum.Count; enumIndex++)
@@ -38,14 +38,14 @@ namespace Characters
 
     public enum Mob
     {
-        Healer,
         Lantern,
-        Rogue,
+        Tank,
+        Swarm,
         Scavenger,
-        Shield,
+        Rogue,
         Sprinter,
         Stacked,
-        Swarm,
-        Tank,
+        Shield,
+        Healer,
     }
 }

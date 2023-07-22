@@ -17,7 +17,7 @@ MonoBehaviour:
   MaxHealth: 6
   MovementSpeedMultiplier: 1.2
   LightFadesOnDeath: 0
-  MobEnumEntry: 1
+  MobEnumEntry: 0
   MobName: Lantern Bug
   MobSprite: {fileID: 21300000, guid: 793959ac751f43d4cbb76ef3ef630b25, type: 3}
   TooltipDescription: "Lantern Bug\n\nThis speedy bug lights your way. It will drop

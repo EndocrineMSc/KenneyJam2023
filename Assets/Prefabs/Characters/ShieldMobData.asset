@@ -17,7 +17,6 @@ MonoBehaviour:
   MaxHealth: 4
   MovementSpeedMultiplier: 1
   LightFadesOnDeath: 0
-  MobEnumEntry: 4
+  MobEnumEntry: 7
   MobName: Aspis snail
   MobSprite: {fileID: 21300000, guid: b932e1b1d81720347bc2c73db69b92bc, type: 3}
-  TooltipDescription: 

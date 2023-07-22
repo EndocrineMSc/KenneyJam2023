@@ -18,7 +18,7 @@ namespace Characters
         private float _maxMovementSpeed = 4;
         internal float MovementSpeed { get; private protected set; }
         internal bool LightFadesOnDeath;
-        public Mob MobEnumEntry;
+        internal Mob MobEnumEntry;
 
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
@@ -48,6 +48,7 @@ namespace Characters
                 _maxMovementSpeed *= _mobData.MovementSpeedMultiplier;
                 MovementSpeed = _maxMovementSpeed;
                 LightFadesOnDeath = _mobData.LightFadesOnDeath;
+                MobEnumEntry = _mobData.MobEnumEntry;
             }
         }
 

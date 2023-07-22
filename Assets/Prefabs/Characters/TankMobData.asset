@@ -17,7 +17,6 @@ MonoBehaviour:
   MaxHealth: 50
   MovementSpeedMultiplier: 0.8
   LightFadesOnDeath: 0
-  MobEnumEntry: 8
+  MobEnumEntry: 1
   MobName: Hard Slime
   MobSprite: {fileID: 21300000, guid: c02903d5af0892246932eb8b20ef12b6, type: 3}
-  TooltipDescription: 

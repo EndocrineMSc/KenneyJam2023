@@ -34,7 +34,7 @@ namespace Characters
 
         protected override void OnDeathEffect()
         {
-            //none
+            throw new System.NotImplementedException();
         }
 
         private void Update()
