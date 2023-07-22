@@ -5,16 +5,16 @@ using UnityEngine;
 namespace Characters
 {
     [CreateAssetMenu (menuName = "Mob Data Object")]
-    internal class MobDataObject : ScriptableObject
+    public class MobDataObject : ScriptableObject
     {
-        internal int Cost;
-        internal int TargetPriority;
-        internal int MaxHealth;
-        internal float MovementSpeedMultiplier;
-        internal bool LightFadesOnDeath;
-        internal Mob MobEnumEntry;
-        internal string MobName;
-        internal Sprite MobSprite;
+        public int Cost;
+        public int TargetPriority;
+        public int MaxHealth;
+        public float MovementSpeedMultiplier;
+        public bool LightFadesOnDeath;
+        public Mob MobEnumEntry;
+        public string MobName;
+        public Sprite MobSprite;
         [TextArea] public string TooltipDescription;
     }
 }

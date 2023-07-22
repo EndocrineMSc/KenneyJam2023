@@ -10,14 +10,13 @@ namespace Characters
     {
         #region Fields and Properties
 
-        internal MobDataObject MobData;
+        [SerializeField] protected MobDataObject _mobData;
         internal int Cost;
         internal int TargetPriority;
         internal int MaxHealth;
         internal int Health { get; private protected set; }
         private float _maxMovementSpeed = 4;
         internal float MovementSpeed { get; private protected set; }
-        internal float MovementSpeedMultiplier;
         internal bool LightFadesOnDeath;
         internal Mob MobName;
 
@@ -40,15 +39,15 @@ namespace Characters
 
         protected void InitializeData()
         {
-            if (MobData != null)
+            if (_mobData != null)
             {
-                Cost = MobData.Cost;
-                TargetPriority = MobData.TargetPriority;
-                MaxHealth = MobData.MaxHealth;
+                Cost = _mobData.Cost;
+                TargetPriority = _mobData.TargetPriority;
+                MaxHealth = _mobData.MaxHealth;
                 Health = MaxHealth;
-                _maxMovementSpeed *= MovementSpeedMultiplier;
+                _maxMovementSpeed *= _mobData.MovementSpeedMultiplier;
                 MovementSpeed = _maxMovementSpeed;
-                LightFadesOnDeath = MobData.LightFadesOnDeath;
+                LightFadesOnDeath = _mobData.LightFadesOnDeath;
             }
         }
 
@@ -56,7 +55,7 @@ namespace Characters
         {
             SubtractDamage(damage);
             OnDamageEffect();
-
+            Debug.Log(Health);
             // Towers may decide to change target only when the target died
             return CheckForDeath();
         }
@@ -68,7 +67,7 @@ namespace Characters
 
         protected bool CheckForDeath()
         {
-            bool stillAlive = Health <= 0;
+            bool stillAlive = Health >= 0;
 
             if (!stillAlive)
                 StartCoroutine(Die());
@@ -83,12 +82,12 @@ namespace Characters
                 CharacterEvents.RaiseDeath(gameObject);
                 OnDeathEffect();
             }
+            MovementSpeed = 0;
             TargetPriority = -1;
             HandleDeathLight();
             FadeSprite();
             yield return new WaitForSeconds(_waitTillDeathTime);
             
-            StopAllCoroutines();
             Destroy(gameObject);
         }
 
