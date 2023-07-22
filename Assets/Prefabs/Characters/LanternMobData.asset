@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cost: 5
   TargetPriority: 2
-  MaxHealth: 2
+  MaxHealth: 6
   MovementSpeedMultiplier: 1.2
   LightFadesOnDeath: 0
   MobEnumEntry: 0

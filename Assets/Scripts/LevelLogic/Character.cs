@@ -18,7 +18,7 @@ namespace Characters
         private float _maxMovementSpeed = 4;
         internal float MovementSpeed { get; private protected set; }
         internal bool LightFadesOnDeath;
-        internal Mob MobName;
+        internal Mob MobEnumEntry;
 
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
@@ -48,6 +48,7 @@ namespace Characters
                 _maxMovementSpeed *= _mobData.MovementSpeedMultiplier;
                 MovementSpeed = _maxMovementSpeed;
                 LightFadesOnDeath = _mobData.LightFadesOnDeath;
+                MobEnumEntry = _mobData.MobEnumEntry;
             }
         }
 
@@ -55,7 +56,6 @@ namespace Characters
         {
             SubtractDamage(damage);
             OnDamageEffect();
-            Debug.Log(Health);
             // Towers may decide to change target only when the target died
             return CheckForDeath();
         }
@@ -67,7 +67,7 @@ namespace Characters
 
         protected bool CheckForDeath()
         {
-            bool stillAlive = Health >= 0;
+            bool stillAlive = Health > 0;
 
             if (!stillAlive)
                 StartCoroutine(Die());
