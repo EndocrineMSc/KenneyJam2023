@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3257838384755440517}
   - component: {fileID: 675485837470025789}
-  - component: {fileID: 2899481224881877062}
+  - component: {fileID: 4717121483805531152}
   m_Layer: 0
-  m_Name: ArrowTurret
+  m_Name: NetTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2899481224881877062
+--- !u!114 &4717121483805531152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,13 +95,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6798547438781802290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e28b3797841d14b800f98a79d4836f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6096ca48ed1f2e24090691539cce1a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 6
-  damage: 2
-  attackSpeed: 0.8
-  TravelSpeed: 40
+  Range: 0
+  damage: 0
+  attackSpeed: 0
+  TravelSpeed: 0
+  AreaOfEffect: 0
 --- !u!1 &6998627417076946005
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 6998627417076946005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.37, y: 0.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3257838384755440517}
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4b0c871ccb9f5f428c466f3fdf234ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a1683154a74c9d4e9f993bd6c54f947, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

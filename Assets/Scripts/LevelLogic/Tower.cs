@@ -25,8 +25,6 @@ namespace Towers
         
         internal GameObject currentTarget;
         
-        [SerializeField]
-        public int TargetPriority;
         internal Turret TurretName;
 
         protected Projectile projectile;
