@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
-    internal abstract class Character : MonoBehaviour
+    public abstract class Character : MonoBehaviour
     {
         #region Fields and Properties
 
