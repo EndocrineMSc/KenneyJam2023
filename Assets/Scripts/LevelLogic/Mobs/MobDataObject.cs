@@ -15,5 +15,6 @@ namespace Characters
         internal Mob MobEnumEntry;
         internal string MobName;
         internal Sprite MobSprite;
+        [TextArea] public string TooltipDescription;
     }
 }

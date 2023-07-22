@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Utility
 {
-    internal class BuyButton : MonoBehaviour
+    internal class BuyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private MobDataObject _mobData;
         [SerializeField] private TextMeshProUGUI _mobName;
@@ -55,5 +56,14 @@ namespace Utility
             _button.interactable = PlayerData.CheckForCurrency(_mobData.Cost);
         }
 
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Tooltip.Instance.ShowTooltip(_mobData.TooltipDescription);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            Tooltip.Instance.HideTooltip();
+        }
     }
 }
