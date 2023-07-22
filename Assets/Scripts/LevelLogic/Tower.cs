@@ -54,7 +54,9 @@ namespace Towers
         // Start is called before the first frame update
         void Awake()
         {
-            projectile = this.GetComponent<Projectile>();
+            projectile = GetComponentInChildren<Projectile>();
+            projectile.GetComponent<SpriteRenderer>().enabled = false;
+
             nextShoot = Time.time;
         }
 

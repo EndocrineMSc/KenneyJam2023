@@ -20,15 +20,16 @@ namespace Towers
         public void Awake()
         {
             StartingPositon = transform.position;
+            GetComponent<SpriteRenderer>().enabled = true;
         }
 
         public void Update()
         {
             transform.position = Vector3.MoveTowards(this.transform.position, Target, TravelSpeed * Time.deltaTime);
 
-            if(MapControllerHelper.GetDistance(StartingPositon,transform.position) > MapControllerHelper.GetDistance(StartingPositon, Target))
+            if(transform.position.Equals(Target))
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
     }
