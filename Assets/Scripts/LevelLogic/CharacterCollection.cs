@@ -36,7 +36,7 @@ namespace Characters
         }
     }
 
-    internal enum Mob
+    public enum Mob
     {
         Lantern,
         Tank,

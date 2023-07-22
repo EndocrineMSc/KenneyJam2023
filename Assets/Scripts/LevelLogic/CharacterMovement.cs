@@ -39,7 +39,8 @@ namespace Characters
                 {
                     SetSpeed();
                     MoveToNextWaypoint(_waypoints[TargetWaypointIndex]);
-                    SetRotation();
+                    //SetRotation();
+                    FlipSpriteInDirection();
                     UpdateWaypointTargetIndex();
                 }
                 else
@@ -58,14 +59,21 @@ namespace Characters
             // Raise event if we want to use the start waitpoints as a "checkpoint" or do something there
         }
 
+        private void FlipSpriteInDirection()
+        {
+            _character.GetComponent<SpriteRenderer>().flipX = (_waypoints[TargetWaypointIndex].x - transform.position.x > 0);
+        }
+
         //Can be deleted or commented out if it looks weird in the final thing
         //Don't forget to remove in update in this case, too
+        /*
         private void SetRotation()
         {
             var direction = _waypoints[TargetWaypointIndex] - (Vector2)_character.transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _character.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+        */
 
         private void UpdateWaypointTargetIndex()
         {
