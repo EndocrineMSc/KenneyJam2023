@@ -100,6 +100,24 @@ namespace Characters
                 MovementSpeed = 0;
         }
 
+        internal void Heal(int amount)
+        {
+            Health += amount;
+
+            if (Health > MaxHealth)
+                Health = MaxHealth;
+
+             StartCoroutine(BlinkGreen()); 
+        }
+
+        protected IEnumerator BlinkGreen()
+        {
+            var renderer = GetComponent<SpriteRenderer>();
+            renderer.color = Color.green;
+            yield return new WaitForSeconds(0.3f);
+            renderer.color = Color.white;
+        }
+
         protected IEnumerator RestoreOriginalSpeed(float speed)
         {
             var restoreSpeed = 0.5f;
