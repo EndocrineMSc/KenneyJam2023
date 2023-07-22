@@ -22,7 +22,14 @@ internal static class MapControllerHelper
 
         List<Character> charactersInRange = new();
 
-        return FindCharactersInRange(origin,range).OrderBy(character => character.GetComponent<Character>()).ToList().FirstOrDefault();
+        return FindCharactersInRange(origin,range).
+            OrderBy(character => character.GetComponent<Character>()).FirstOrDefault();
+    }
+
+    internal static GameObject FindHighestPriorityInRange(Vector2 origin, int range) { 
+
+        return FindCharactersInRange(origin, range).
+                OrderBy(character => character.GetComponent<Character>().TargetPriority).FirstOrDefault();
     }
 
     internal static GameObject FindClosestCharacterInRange(Vector3 origin, int range)

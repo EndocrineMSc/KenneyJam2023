@@ -30,14 +30,18 @@ namespace Towers
 
         #region Functions
 
-        internal void Shoot()
+        protected virtual void SelectTarget()
         {
-            if(currentTarget == null) {
-                currentTarget = MapControllerHelper.FindClosestCharacterInRange(this.gameObject.transform.position, Range);
-            } else
-            {
+            currentTarget = MapControllerHelper.FindFurthestAdvancedCharacterInRange(this.gameObject.transform.position, Range);
+        }
 
-            }
+        protected virtual void Shoot()
+        {
+            bool KilledTarget = currentTarget.GetComponent<Character>().TakeDamage(damage);
+
+            // Only relevant for gun-type towers (they only switch target on kill)
+            if (KilledTarget)
+                currentTarget = null;
         }
 
         // Start is called before the first frame update
@@ -49,18 +53,10 @@ namespace Towers
         // Update is called once per frame
         void Update()
         {
-            // Distance and 
-            // if(currentTarget = null || Distance(this, currentTarget) > Range)
+            SelectTarget();
+            if (currentTarget != null && Time.deltaTime >= attackSpeed)
             {
-                // currentTarget = GetNearestCharacter(this, Range);
-                
-            }
-
-            // I think there is some clever way to check this
-            double lastUpdate = 0; //dummy for how I would do it
-            double currentTime = 1;
-            if(currentTime- lastUpdate > attackSpeed)
-            {
+                Shoot();
             }
         }
 

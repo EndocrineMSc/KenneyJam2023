@@ -52,7 +52,7 @@ namespace Characters
             }
         }
 
-        protected bool TakeDamage(int damage)
+        internal virtual bool TakeDamage(int damage)
         {
             SubtractDamage(damage);
             OnDamageEffect();
