@@ -32,6 +32,9 @@ namespace Towers
 
         protected float nextShoot;
 
+        [SerializeField,TextArea]
+        protected string tooltipDescription;
+
         #endregion
 
         #region Functions
@@ -57,6 +60,7 @@ namespace Towers
             projectile.GetComponent<SpriteRenderer>().enabled = false;
 
             nextShoot = Time.time;
+            tooltipDescription = TurretName.ToString() + "\n \n" + tooltipDescription + "\n \n" + "Attack Speed: " + attackSpeed + "\n" + "Damage: " + damage;
         }
 
         // Update is called once per frame
