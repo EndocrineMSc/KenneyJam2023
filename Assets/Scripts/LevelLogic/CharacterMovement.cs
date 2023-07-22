@@ -1,10 +1,12 @@
 using UnityEngine;
 using Pathing;
 using System.Collections.Generic;
+using System;
+using System.Transactions;
 
 namespace Characters
 {
-    internal class CharacterMovement : MonoBehaviour
+    internal class CharacterMovement : MonoBehaviour, IComparable<CharacterMovement>
     {
         #region Fields and Properties
 
@@ -80,6 +82,26 @@ namespace Characters
         {
             TargetWaypointIndex = index;
         }
+
+        public int CompareTo(CharacterMovement other)
+        {
+            if(other == null) return 1;
+
+            float myDistance = Vector2.Distance(this.transform.position, _waypoints[TargetWaypointIndex]);
+            float otherDistance = Vector2.Distance(other.transform.position, other._waypoints[other.TargetWaypointIndex]);
+            
+            if(this.TargetWaypointIndex > other.TargetWaypointIndex || 
+                this.TargetWaypointIndex == other.TargetWaypointIndex && myDistance > otherDistance)
+            {
+                return 1;
+            } else if (this.TargetWaypointIndex < other.TargetWaypointIndex ||
+                this.TargetWaypointIndex == other.TargetWaypointIndex && myDistance < otherDistance)
+            {
+                return -1;
+            } else { return 0; }
+        }
+
+
 
 
         #endregion
