@@ -31,6 +31,8 @@ namespace Towers
 
         protected Projectile projectile;
 
+        protected float nextShoot;
+
         #endregion
 
         #region Functions
@@ -59,10 +61,11 @@ namespace Towers
         void Update()
         {
             SelectTarget();
-            if (currentTarget != null && Time.deltaTime >= attackSpeed)
+            if (currentTarget != null && Time.time >= nextShoot)
             {
                 AnimateProjectile();
                 Shoot();
+                nextShoot = Time.time + attackSpeed;
             }
         }
 
