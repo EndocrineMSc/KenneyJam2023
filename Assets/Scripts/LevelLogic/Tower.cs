@@ -1,16 +1,16 @@
+using Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Characters
+namespace Towers
 {
 
     internal abstract class Tower : MonoBehaviour
     {
-
         #region Fields and Functions
         [SerializeField]
-        public float Range ;
+        public int Range ;
 
         [SerializeField]
         internal int damage;
@@ -20,10 +20,11 @@ namespace Characters
         [SerializeField]
         internal float travelTime; //Maybe, maybe not? Projectiles could always just go straight, to make it easy
         
-        internal Character currentTarget;
+        internal GameObject currentTarget;
         
         [SerializeField]
         public int TargetPriority;
+        internal Turret TurretName;
 
         #endregion
 
@@ -31,7 +32,12 @@ namespace Characters
 
         internal void Shoot()
         {
+            if(currentTarget == null) {
+                currentTarget = MapControllerHelper.FindClosestCharacterInRange(this.gameObject.transform.position, Range);
+            } else
+            {
 
+            }
         }
 
         // Start is called before the first frame update
