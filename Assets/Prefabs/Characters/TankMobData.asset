@@ -20,3 +20,15 @@ MonoBehaviour:
   MobEnumEntry: 1
   MobName: Hard Slime
   MobSprite: {fileID: 21300000, guid: c02903d5af0892246932eb8b20ef12b6, type: 3}
+  TooltipDescription: 'Hardened Slime
+
+
+    Tanky slime with a protector complex.
+
+    Will
+    slow down when hit.
+
+
+    Health: 50
+
+    Speed: 0.8'

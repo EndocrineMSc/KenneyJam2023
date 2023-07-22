@@ -20,3 +20,13 @@ MonoBehaviour:
   MobEnumEntry: 5
   MobName: Beeliner
   MobSprite: {fileID: 21300000, guid: a2c663941df95e949896b4d53dcf7409, type: 3}
+  TooltipDescription: 'Beeliner
+
+
+    Very fast but squishy.
+
+
+    Health: 6
+
+    Speed:
+    2'

@@ -20,3 +20,15 @@ MonoBehaviour:
   MobEnumEntry: 7
   MobName: Aspis snail
   MobSprite: {fileID: 21300000, guid: b932e1b1d81720347bc2c73db69b92bc, type: 3}
+  TooltipDescription: 'Aspis Snail
+
+
+    Generates shield for itself over time.
+
+    Starts
+    with the maximum 20 shield.
+
+
+    Health: 4
+
+    Speed: 1'

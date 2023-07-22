@@ -15,7 +15,7 @@ namespace Characters
         internal int TargetPriority;
         internal int MaxHealth;
         internal int Health { get; private protected set; }
-        private float _maxMovementSpeed = 4;
+        private float _maxMovementSpeed = 2;
         internal float MovementSpeed { get; private protected set; }
         internal bool LightFadesOnDeath;
         public Mob MobEnumEntry;

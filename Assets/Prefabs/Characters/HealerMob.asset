@@ -24,4 +24,9 @@ MonoBehaviour:
 
 
     This slime periodically heals surrounding
-    mobs'
+    mobs.
+
+
+    Health: 7
+
+    Speed: 1'
