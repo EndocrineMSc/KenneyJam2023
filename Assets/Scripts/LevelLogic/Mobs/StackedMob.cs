@@ -16,8 +16,9 @@ namespace Characters
         protected override void OnDeathEffect()
         {
             var waypointIndex = GetComponent<CharacterMovement>().TargetWaypointIndex;
-            var mob = Instantiate(_swarmy, transform.position, Quaternion.identity);
+            var mob = Instantiate(_swarmy, transform.position, Quaternion.identity).gameObject;
             mob.GetComponent<CharacterMovement>().SetWaypointIndex(waypointIndex);
+            CharacterSpawner.Instance.ActiveCharacters.Add(mob);
         }
     }
 }

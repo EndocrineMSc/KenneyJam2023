@@ -46,6 +46,19 @@ namespace Characters
         {
             var mobObject = Instantiate(_allMobs[mob], _spawnPoint.transform.position, Quaternion.identity);
             ActiveCharacters.Add(mobObject);
+
+            if (mob == Mob.Swarm)
+                StartCoroutine(SpawnSwarmys());           
+        }
+
+        private IEnumerator SpawnSwarmys()
+        {
+            yield return new WaitForSeconds(0.2f);
+            var mobObject = Instantiate(_allMobs[Mob.Swarm], _spawnPoint.transform.position, Quaternion.identity);
+            ActiveCharacters.Add(mobObject);
+            yield return new WaitForSeconds(0.2f);
+            mobObject = Instantiate(_allMobs[Mob.Swarm], _spawnPoint.transform.position, Quaternion.identity);
+            ActiveCharacters.Add(mobObject);
         }
 
         private void RemoveMobFromActiveList(GameObject characterObject)
