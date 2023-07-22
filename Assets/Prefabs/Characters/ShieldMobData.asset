@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
+  m_Name: ShieldMobData
+  m_EditorClassIdentifier: 
+  Cost: 12
+  TargetPriority: 1
+  MaxHealth: 4
+  MovementSpeedMultiplier: 1
+  LightFadesOnDeath: 0
+  MobEnumEntry: 7
+  MobName: Aspis snail
+  MobSprite: {fileID: 21300000, guid: b932e1b1d81720347bc2c73db69b92bc, type: 3}

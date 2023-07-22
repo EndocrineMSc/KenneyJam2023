@@ -10,15 +10,16 @@ namespace Characters
     {
         #region Fields and Properties
 
-        public int Cost;
-        public int TargetPriority;
-        public int MaxHealth;
-        public int Health { get; private protected set; }
+        internal MobDataObject MobData;
+        internal int Cost;
+        internal int TargetPriority;
+        internal int MaxHealth;
+        internal int Health { get; private protected set; }
         private float _maxMovementSpeed = 4;
-        public float MovementSpeed { get; private protected set; }
-        public float MovementSpeedMultiplier;
-        public bool LightFadesOnDeath;
-        public Mob MobName;
+        internal float MovementSpeed { get; private protected set; }
+        internal float MovementSpeedMultiplier;
+        internal bool LightFadesOnDeath;
+        internal Mob MobName;
 
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
@@ -26,12 +27,29 @@ namespace Characters
 
         #region Functions
 
+        protected void OnValidate()
+        {
+            InitializeData();
+        }
+
         protected virtual void Awake()
         {
-            Health = MaxHealth;
-            _maxMovementSpeed *= MovementSpeedMultiplier;
-            MovementSpeed = _maxMovementSpeed;
+            InitializeData();
             _light = GetComponentInChildren<Light2D>();
+        }
+
+        protected void InitializeData()
+        {
+            if (MobData != null)
+            {
+                Cost = MobData.Cost;
+                TargetPriority = MobData.TargetPriority;
+                MaxHealth = MobData.MaxHealth;
+                Health = MaxHealth;
+                _maxMovementSpeed *= MovementSpeedMultiplier;
+                MovementSpeed = _maxMovementSpeed;
+                LightFadesOnDeath = MobData.LightFadesOnDeath;
+            }
         }
 
         protected bool TakeDamage(int damage)
