@@ -13,10 +13,11 @@ namespace Towers
 
         protected ParticleSystem explosion;
 
-        public void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             explosion = GetComponentInChildren<ParticleSystem>();
-            
+            projectile = null;
         }
 
         protected override void Shoot()

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.TextCore.Text;
 using static UnityEngine.GraphicsBuffer;
 
@@ -26,7 +27,7 @@ namespace Towers
         
         internal GameObject currentTarget;
                 
-        internal Turret TurretName;
+        public Turret TurretName;
 
         protected Projectile projectile;
 
@@ -54,10 +55,11 @@ namespace Towers
         }
 
         // Start is called before the first frame update
-        void Awake()
+        protected virtual void Awake()
         {
             projectile = GetComponentInChildren<Projectile>();
-            projectile.GetComponent<SpriteRenderer>().enabled = false;
+            if (projectile != null)
+                projectile.GetComponent<SpriteRenderer>().enabled = false;
 
             nextShoot = Time.time;
             tooltipDescription = TurretName.ToString() + "\n \n" + tooltipDescription + "\n \n" + "Attack Speed: " + attackSpeed + "\n" + "Damage: " + damage;
@@ -86,6 +88,16 @@ namespace Towers
 
             Projectile newProjectile = Instantiate(projectile, this.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newProjectile.DefineTarget(currentTarget.transform.position, TravelSpeed);
+        }
+
+        protected void OnMouseEnter()
+        {
+            Tooltip.Instance.ShowTooltip(tooltipDescription);
+        }
+
+        protected void OnMouseExit()
+        {
+            Tooltip.Instance.HideTooltip();
         }
 
         #endregion

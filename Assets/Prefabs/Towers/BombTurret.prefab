@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3257838384755440517}
   - component: {fileID: 675485837470025789}
   - component: {fileID: 6531299204075073933}
+  - component: {fileID: -205967018570309227}
   m_Layer: 0
   m_Name: BombTurret
   m_TagString: Untagged
@@ -103,8 +104,35 @@ MonoBehaviour:
   damage: 6
   attackSpeed: 3
   TravelSpeed: 35
+  TurretName: 2
   tooltipDescription: Shoots bombs, dealing AOE damage.
   AreaOfEffect: 0.8
+--- !u!61 &-205967018570309227
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798547438781802290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4525}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 1.98, y: 1.81}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.98, y: 1.81}
+  m_EdgeRadius: 0
 --- !u!1 &6993825621962997682
 GameObject:
   m_ObjectHideFlags: 0
