@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9073265679510577609}
   - component: {fileID: 8819755315803014682}
   m_Layer: 0
-  m_Name: TankMob
+  m_Name: RogueMob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mobData: {fileID: 11400000, guid: d08a7455721aa3541a50da399e94cf61, type: 2}
+  MobEnumEntry: 2
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
-  m_Name: TankMobData
+  m_Name: HealerMobData
   m_EditorClassIdentifier: 
-  Cost: 10
-  TargetPriority: 1
-  MaxHealth: 50
-  MovementSpeedMultiplier: 0.8
-  LightFadesOnDeath: 0
-  MobEnumEntry: 8
-  MobName: Hard Slime
-  MobSprite: {fileID: 21300000, guid: c02903d5af0892246932eb8b20ef12b6, type: 3}
-  TooltipDescription: 
+  Cost: 8
+  TargetPriority: 3
+  MaxHealth: 7
+  MovementSpeedMultiplier: 1
+  LightFadesOnDeath: 1
+  MobEnumEntry: 0
+  MobName: Potion Slime
+  MobSprite: {fileID: 21300000, guid: fcea7f35112216d42aa33501caac22d5, type: 3}
+  TooltipDescription: 'Potion Slime
+
+
+    Slighty heals other mobs in range every
+    two seconds.'

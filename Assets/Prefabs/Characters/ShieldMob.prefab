@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b932e1b1d81720347bc2c73db69b92bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,13 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d77473d42434b45b924e82991a46e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobData: {fileID: 11400000, guid: 17345d73e0eefef48ac484e946affec9, type: 2}
-  Cost: 12
-  TargetPriority: 1
-  MaxHealth: 4
-  MovementSpeedMultiplier: 1
-  LightFadesOnDeath: 0
-  MobName: 7
+  _mobData: {fileID: 11400000, guid: 17345d73e0eefef48ac484e946affec9, type: 2}
+  MobEnumEntry: 4
   MaxShield: 20
   _shieldGenerationTimer: 1
 --- !u!1 &2645621463980648706

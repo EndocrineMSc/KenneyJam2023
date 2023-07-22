@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5553088892107644025}
   - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
-  - component: {fileID: 8819755315803014682}
+  - component: {fileID: -3450461494883685132}
   m_Layer: 0
-  m_Name: TankMob
+  m_Name: HealerMob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c02903d5af0892246932eb8b20ef12b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcea7f35112216d42aa33501caac22d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cc0f239253fa14281718d78a89cade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8819755315803014682
+--- !u!114 &-3450461494883685132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,10 +108,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097699033948708273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc96a173221704e41867238fdbab8e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8eeeed278639d614e9c69451e47bde1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobData: {fileID: 11400000, guid: d08a7455721aa3541a50da399e94cf61, type: 2}
+  _mobData: {fileID: 11400000, guid: 79357c7242f45fb428a115f8a8d430cc, type: 2}
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
