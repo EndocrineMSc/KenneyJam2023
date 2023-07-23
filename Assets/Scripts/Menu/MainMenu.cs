@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _settingsButton;
     [SerializeField] private Button _creditsButton;
     [SerializeField] private Canvas _menuCanvas;
+    [SerializeField] private Image _fadeImage;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadWithFade(SceneName.ProductionLevel));
     }
 
     private void OnOtherMenuOpened()
@@ -68,5 +70,11 @@ public class MainMenu : MonoBehaviour
         AudioManager.Instance.PlaySFX("ButtonClick");
         MenuEvents.RaiseCreditsOpened();
     }
-        
+       
+    private IEnumerator LoadWithFade(SceneName sceneName)
+    {
+        _fadeImage.DOFade(1, 1);
+        yield return new WaitForSeconds(1);
+        LoadHelper.LoadSceneWithLoadingScreen(sceneName);
+    }
 }
