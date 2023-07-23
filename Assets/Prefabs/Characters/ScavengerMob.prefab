@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
   - component: {fileID: 4588617952123881568}
+  - component: {fileID: 3482703816911306133}
   m_Layer: 0
   m_Name: ScavengerMob
   m_TagString: Untagged
@@ -114,6 +115,26 @@ MonoBehaviour:
   _mobData: {fileID: 11400000, guid: bd6da7fc89fbbfb49912861755d060e7, type: 2}
   MobEnumEntry: 3
   _currencyPrefab: {fileID: 5391807429960037870, guid: 34d9a206ea995b04d8c8659b548d6281, type: 3}
+--- !u!95 &3482703816911306133
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097699033948708273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 587afd24368bf334eb8db7b910645510, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
