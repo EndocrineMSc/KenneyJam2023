@@ -3849,7 +3849,7 @@ MonoBehaviour:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: fbe004b374185454ea447a188a9c7ec3, type: 3}
   - name: Spawn
-    clip: {fileID: 8300000, guid: 42297fa45ffd844429585cac352df5e1, type: 3}
+    clip: {fileID: 8300000, guid: 1c3035506ccb12b40abc57e4dca284a6, type: 3}
   - name: Arrow
     clip: {fileID: 8300000, guid: 63ee3cf291a2c044e913aef1fdabb713, type: 3}
   - name: Bomb
@@ -3860,6 +3860,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 460df57b12eb34f43bf94f60ccbd6771, type: 3}
   - name: Sniper
     clip: {fileID: 8300000, guid: be6cff5a24dbc0447ab4476e3cb01396, type: 3}
+  - name: Death
+    clip: {fileID: 8300000, guid: e187b46ca23d8c340a1e52dda16a2c23, type: 3}
+  - name: Net
+    clip: {fileID: 8300000, guid: e5364dcbdb7987846a7addc42cbe975b, type: 3}
   musicSource: {fileID: 430163601}
   sfxSource: {fileID: 1452978598}
 --- !u!4 &1610014212

@@ -22,6 +22,7 @@ namespace Towers
 
         protected override void Shoot()
         {
+            AudioManager.Instance.PlaySFX("Bomb");
             MapControllerHelper.FindCharactersInRange(currentTarget.transform.position, AreaOfEffect).
                 ForEach(character => character.GetComponent<Character>().TakeDamage(damage));
 

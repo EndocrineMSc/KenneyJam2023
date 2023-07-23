@@ -35,6 +35,9 @@ namespace Characters
         {
             InitializeData();
             _light = GetComponentInChildren<Light2D>();
+            //Spawn Sound
+            AudioManager.Instance.PlaySFX("Spawn");
+
         }
 
         protected void InitializeData()
@@ -86,8 +89,13 @@ namespace Characters
             HandleDeathLight();
             FadeSprite();
             yield return new WaitForSeconds(_waitTillDeathTime);
-            
+
+            //Death Sound
+            AudioManager.Instance.PlaySFX("Death");
+
             Destroy(gameObject);
+
+            
         }
 
         internal void SlowCharacter(float slowAmount)

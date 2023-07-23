@@ -20,6 +20,7 @@ namespace Towers
 
         protected override void Shoot()
         {
+            AudioManager.Instance.PlaySFX("Net");
             List<GameObject> charactersInAoE = MapControllerHelper.FindCharactersInRange(currentTarget.transform.position, Range);
 
             float lowestSpeed = float.MaxValue;
