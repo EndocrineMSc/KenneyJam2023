@@ -11,6 +11,7 @@ public class PlayAgain : MonoBehaviour
 
     public void PlayAgainClicked()
     {
+        PlayerData.ResetState();
         StartCoroutine(LoadWithFade(SceneName.Menu));
     }
 
