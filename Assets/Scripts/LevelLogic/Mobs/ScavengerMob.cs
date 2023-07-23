@@ -37,7 +37,8 @@ namespace Characters
             var distance = Mathf.Abs(Vector3.Distance(characterObject.transform.position, transform.position));
             if (distance < _scavengeRange)
             {
-                var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
+                //var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
+                var amountCurrency = 1;
                 if (characterObject != this.gameObject)
                 {
                     PlayerData.AddCurrency(amountCurrency);
