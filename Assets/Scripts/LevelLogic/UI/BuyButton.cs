@@ -1,4 +1,5 @@
 using Characters;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,8 @@ namespace Utility
         [SerializeField] private TextMeshProUGUI _mobCost;
         [SerializeField] private Image _mobImage;
         private Button _button;
+        private bool _isWiggling;
+        private RectTransform _buttonTransform;
 
         private void OnValidate()
         {
@@ -26,6 +29,7 @@ namespace Utility
             InitializeButtonData();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(TryBuyMob);
+            _buttonTransform = GetComponent<RectTransform>();
         }
 
         private void InitializeButtonData()
@@ -58,6 +62,9 @@ namespace Utility
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!_isWiggling)
+                StartCoroutine(Wiggle());
+
             Tooltip.Instance.ShowTooltip(_mobData.TooltipDescription);
         }
 
@@ -71,6 +78,14 @@ namespace Utility
         {
             AudioManager.Instance.PlaySFX("ButtonClick");
             MenuEvents.RaiseMainMenuOpened();
+        }
+
+        private IEnumerator Wiggle()
+        {
+            _isWiggling = true;
+            _buttonTransform.DOBlendablePunchRotation(new(0,0,-3), 0.5f, 1, 1);
+            yield return new WaitForSeconds(0.2f);
+            _isWiggling = false;
         }
     }
 }
