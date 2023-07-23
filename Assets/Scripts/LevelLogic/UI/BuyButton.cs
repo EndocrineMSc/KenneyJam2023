@@ -50,6 +50,7 @@ namespace Utility
 
             if (enoughCurrency)
             {
+                AudioManager.Instance.PlaySFX("Spawn");
                 CharacterSpawner.Instance.SpawnMob(_mobData.MobEnumEntry);
                 PlayerData.SpendCurrency(_mobData.Cost);
                 _button.interactable = false;
@@ -59,7 +60,6 @@ namespace Utility
             {
                 //ToDo: Play error sound
             }
-
         }
 
         private void Update()

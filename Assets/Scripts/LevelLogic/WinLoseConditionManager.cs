@@ -10,6 +10,7 @@ namespace Utility
     internal class WinLoseConditionManager : MonoBehaviour
     {
         [SerializeField] private Image _fadeImage;
+        private float _scoreModifier = 0;
 
         private void OnEnable()
         {
@@ -45,6 +46,7 @@ namespace Utility
 
         private void GameWon()
         {
+            PlayerData.SetScore(CalculateScore());
             StartCoroutine(LoadWithFade(SceneName.Victory));
         }
 
@@ -63,6 +65,20 @@ namespace Utility
             _fadeImage.DOFade(1, 1);
             yield return new WaitForSeconds(1);
             LoadHelper.LoadSceneWithLoadingScreen(sceneName);
+        }
+
+        private void Update()
+        {
+            _scoreModifier += Time.deltaTime;
+        }
+
+        private int CalculateScore()
+        {
+            var currency = PlayerData.Currency;
+            var modifier = 1 / _scoreModifier;
+
+            var score = Mathf.RoundToInt((currency * 1000 + 10000) * modifier);
+            return score;
         }
     }
 }

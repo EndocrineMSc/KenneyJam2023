@@ -34,10 +34,8 @@ namespace Characters
 
         private void GainCurrency(GameObject characterObject)
         {
-            var charsInRange = MapControllerHelper.FindCharactersInRange(transform.position, _scavengeRange);
-            bool deathInRange = charsInRange.Contains(characterObject);
-            
-            if (deathInRange)
+            var distance = Mathf.Abs(Vector3.Distance(characterObject.transform.position, transform.position));
+            if (distance < _scavengeRange)
             {
                 var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
                 if (characterObject != this.gameObject)
