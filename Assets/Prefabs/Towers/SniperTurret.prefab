@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 3.9
-  damage: 6
+  damage: 7
   attackSpeed: 2
-  TravelSpeed: 60
+  TravelSpeed: 42
   TurretName: 4
   tooltipDescription: Long range, high damage but slow
-  ReadyTime: 0.6
+  ReadyTime: 0.2
 --- !u!61 &-1044527557066051329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,8 +171,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6998627417076946005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.37, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalPosition: {x: -0.473, y: 0.988, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3257838384755440517}

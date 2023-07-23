@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 1.8
-  damage: 4
-  attackSpeed: 3
-  TravelSpeed: 35
+  damage: 5
+  attackSpeed: 2.6
+  TravelSpeed: 18
   TurretName: 2
   tooltipDescription: Shoots bombs, dealing AOE damage.
   AreaOfEffect: 0.8
@@ -173,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 6993825621962997682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3257838384755440517}
@@ -5043,7 +5043,7 @@ Transform:
   m_GameObject: {fileID: 6998627417076946005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.37, y: 0.37, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3257838384755440517}

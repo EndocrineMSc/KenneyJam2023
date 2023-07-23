@@ -106,7 +106,7 @@ MonoBehaviour:
   TravelSpeed: 40
   TurretName: 1
   tooltipDescription: Machine gun turret. Will destroy your mobs.
-  ReadyTime: 0.4
+  ReadyTime: 0.1
 --- !u!61 &-308954767993375771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6998627417076946005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.37, z: 0}
+  m_LocalPosition: {x: -0.57, y: 0.885, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

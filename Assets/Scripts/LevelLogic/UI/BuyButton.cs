@@ -53,7 +53,7 @@ namespace Utility
                 CharacterSpawner.Instance.SpawnMob(_mobData.MobEnumEntry);
                 PlayerData.SpendCurrency(_mobData.Cost);
                 _button.interactable = false;
-                BuyCooldown = Time.time + (_mobData.Cost / 5);
+                BuyCooldown = Time.time + (_mobData.Cost / 2);
             }
             else
             {
