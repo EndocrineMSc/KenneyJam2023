@@ -7,9 +7,13 @@ using UnityEngine;
 
 namespace Towers
 {
-
     internal class MGTurret : Tower
     {
+        protected override void Shoot()
+        {
+            base.Shoot();
+        }
+
         protected override void SelectTarget()
         {
             // Shoots until it kills or target leaves range
