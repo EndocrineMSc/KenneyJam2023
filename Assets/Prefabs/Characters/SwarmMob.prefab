@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
   - component: {fileID: -7622246285039095076}
+  - component: {fileID: 8685098003728525715}
   m_Layer: 0
   m_Name: SwarmMob
   m_TagString: Untagged
@@ -113,6 +114,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mobData: {fileID: 11400000, guid: eb9ed82ad93720043a258c2b8f0dd46f, type: 2}
   MobEnumEntry: 2
+--- !u!95 &8685098003728525715
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097699033948708273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31e21ba48d96e994bb7f9fe0092b4e2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0

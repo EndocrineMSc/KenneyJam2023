@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -98490938432586098}
   - component: {fileID: 9073265679510577609}
   - component: {fileID: 6058000982049090101}
+  - component: {fileID: 2706104361200274629}
   m_Layer: 0
   m_Name: StackedMob
   m_TagString: Untagged
@@ -114,6 +115,26 @@ MonoBehaviour:
   _mobData: {fileID: 11400000, guid: 6ad436b0f82c5204cbf7f27d9e124a8c, type: 2}
   MobEnumEntry: 6
   _swarmy: {fileID: -7622246285039095076, guid: f8866de4ea33f444585856f0419af91f, type: 3}
+--- !u!95 &2706104361200274629
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097699033948708273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b83b648b7cfc66e4986c88ffd0a6d5b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
