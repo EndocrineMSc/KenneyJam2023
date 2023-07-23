@@ -29,6 +29,6 @@ MonoBehaviour:
     slow down when hit.
 
 
-    Health: 50
+    Health: 55
 
     Speed: 0.8'
