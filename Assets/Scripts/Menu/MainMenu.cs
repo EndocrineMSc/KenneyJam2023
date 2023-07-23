@@ -37,7 +37,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        LoadHelper.LoadSceneWithLoadingScreen(SceneName.ProductionLevel);
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void OnOtherMenuOpened()
@@ -52,16 +53,20 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         MenuEvents.RaiseSettingsOpened();
     }
 
     public void OpenHowToPlay()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         MenuEvents.RaiseHowToPlayOpened();
     }
 
     public void OpenCredits()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         MenuEvents.RaiseCreditsOpened();
     }
+        
 }

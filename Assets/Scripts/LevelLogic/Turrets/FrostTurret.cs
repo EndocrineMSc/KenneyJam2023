@@ -12,6 +12,7 @@ namespace Towers
 
         protected override void Shoot()
         {
+            AudioManager.Instance.PlaySFX("Frost");
             base.Shoot();
 
             if(currentTarget != null)

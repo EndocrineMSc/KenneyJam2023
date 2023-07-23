@@ -11,6 +11,7 @@ namespace Towers
     {
         protected override void Shoot()
         {
+            AudioManager.Instance.PlaySFX("MG");
             base.Shoot();
         }
 
