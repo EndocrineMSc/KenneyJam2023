@@ -22,6 +22,7 @@ namespace Characters
 
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
+        protected Animator _animator;
         #endregion
 
         #region Functions
@@ -37,7 +38,7 @@ namespace Characters
             _light = GetComponentInChildren<Light2D>();
             //Spawn Sound
             AudioManager.Instance.PlaySFX("Spawn");
-
+            _animator = GetComponent<Animator>();
         }
 
         protected void InitializeData()
@@ -58,6 +59,10 @@ namespace Characters
         {
             SubtractDamage(damage);
             OnDamageEffect();
+
+            if (_animator != null)
+                _animator.SetTrigger("Hit");
+
             // Towers may decide to change target only when the target died
             return CheckForDeath();
         }
@@ -83,6 +88,9 @@ namespace Characters
             {
                 CharacterEvents.RaiseDeath(gameObject);
                 OnDeathEffect();
+
+                if (_animator != null)
+                    _animator.SetTrigger("Death");
             }
             MovementSpeed = 0;
             TargetPriority = -1;

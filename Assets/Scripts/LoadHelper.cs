@@ -7,7 +7,7 @@ namespace Utility
 {
     internal class LoadHelper
     {
-        internal static SceneName SceneToBeLoaded { get; private set; } = SceneName.MainMenu;
+        internal static SceneName SceneToBeLoaded { get; private set; } = SceneName.Menu;
         internal static float LoadDuration { get; private set; } = 1f;
 
         internal static void LoadSceneWithLoadingScreen(SceneName sceneName)
@@ -19,7 +19,7 @@ namespace Utility
 
     internal enum SceneName
     {
-        MainMenu,
+        Menu,
         LoadingScreen,
         ProductionLevel,
         Victory,

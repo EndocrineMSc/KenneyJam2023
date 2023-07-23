@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 527844112509919938}
   - component: {fileID: 9073265679510577609}
   - component: {fileID: -5326850455178719928}
+  - component: {fileID: 1682046076280868688}
   m_Layer: 0
   m_Name: HealerMob
   m_TagString: Untagged
@@ -113,6 +114,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mobData: {fileID: 11400000, guid: 18007de22dd1cc84d8ed78263cd6e87a, type: 2}
   MobEnumEntry: 8
+--- !u!95 &1682046076280868688
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097699033948708273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19d75cbb3804dd046add0b7922a39178, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2645621463980648706
 GameObject:
   m_ObjectHideFlags: 0
