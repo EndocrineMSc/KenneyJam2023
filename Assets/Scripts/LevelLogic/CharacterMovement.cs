@@ -108,9 +108,6 @@ namespace Characters
             } else { return 0; }
         }
 
-
-
-
         #endregion
     }
 }

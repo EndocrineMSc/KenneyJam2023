@@ -45,7 +45,7 @@ namespace Towers
         {
             currentTarget = MapControllerHelper.FindFurthestAdvancedCharacterInRange(this.gameObject.transform.position, Range);
 
-            if (currentTarget.GetComponent<Characters.Character>() == null)
+            if (currentTarget != null && currentTarget.GetComponent<Characters.Character>() == null)
                 currentTarget = null;
         }
 
