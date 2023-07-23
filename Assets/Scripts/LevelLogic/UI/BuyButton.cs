@@ -65,5 +65,12 @@ namespace Utility
         {
             Tooltip.Instance.HideTooltip();
         }
+
+        //ButtonClick
+        public void ButtonClick()
+        {
+            AudioManager.Instance.PlaySFX("ButtonClick");
+            MenuEvents.RaiseMainMenuOpened();
+        }
     }
 }

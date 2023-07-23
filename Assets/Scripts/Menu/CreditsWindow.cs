@@ -43,6 +43,7 @@ public class CreditsWindow : MonoBehaviour
 
     public void BackButtonClick()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         MenuEvents.RaiseMainMenuOpened();
     }
 }
