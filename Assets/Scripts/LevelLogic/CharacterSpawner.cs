@@ -27,13 +27,17 @@ namespace Characters
                 Destroy(gameObject);
 
             ActiveCharacters ??= new();
-            _allMobs = _mobCollection.AllMobs;
         }
 
         private void OnEnable()
         {
             CharacterEvents.OnCharacterDeath += RemoveMobFromActiveList;
             CharacterEvents.OnCharacterReachedGoal += RemoveMobFromActiveList;
+        }
+
+        private void Start()
+        {
+            _allMobs = MobCollection.Instance.AllMobs;            
         }
 
         private void OnDisable()

@@ -10,7 +10,6 @@ namespace Utility
 {
     internal class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private CharacterCollection _allMobs;
         [SerializeField] private Image _loadImage;
 
         private bool _isPunching;
@@ -29,8 +28,9 @@ namespace Utility
 
         private void InstantiateRandomMob()
         {
+            var mobDict = MobCollection.Instance.AllMobs;
             var mobList = new List<GameObject>();
-            foreach (var entry in  _allMobs.AllMobs)
+            foreach (var entry in  mobDict)
                 mobList.Add(entry.Value);
 
             int randomIndex = UnityEngine.Random.Range(0, mobList.Count);
