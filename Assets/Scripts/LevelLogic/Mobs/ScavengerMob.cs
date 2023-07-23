@@ -9,7 +9,8 @@ namespace Characters
     internal class ScavengerMob : Character
     {
         [SerializeField] private CurrencyPopup _currencyPrefab;
-        private float _range = 1.5f;
+        private readonly float _range = 1.5f;
+        private readonly float _scavengeRange = 10f;
 
         private void OnEnable()
         {
@@ -33,11 +34,17 @@ namespace Characters
 
         private void GainCurrency(GameObject characterObject)
         {
-            var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
-            if (characterObject != this.gameObject)
+            var charsInRange = MapControllerHelper.FindCharactersInRange(transform.position, _scavengeRange);
+            bool deathInRange = charsInRange.Contains(characterObject);
+            
+            if (deathInRange)
             {
-                PlayerData.AddCurrency(amountCurrency);
-                StartCoroutine  (SpawnCoins(amountCurrency));
+                var amountCurrency = 4 - characterObject.GetComponent<Character>().TargetPriority;
+                if (characterObject != this.gameObject)
+                {
+                    PlayerData.AddCurrency(amountCurrency);
+                    StartCoroutine(SpawnCoins(amountCurrency));
+                }
             }
         }
 
@@ -68,6 +75,7 @@ namespace Characters
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(transform.position, _range);
+            Gizmos.DrawCube(transform.position, new(_scavengeRange, _scavengeRange));
         }
     }
 }
