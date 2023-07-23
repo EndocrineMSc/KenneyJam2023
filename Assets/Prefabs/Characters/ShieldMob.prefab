@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mobData: {fileID: 11400000, guid: 17345d73e0eefef48ac484e946affec9, type: 2}
   MobEnumEntry: 7
-  MaxShield: 30
+  MaxShield: 20
   _shieldGenerationTimer: 2
 --- !u!95 &4534936551506603419
 Animator:
