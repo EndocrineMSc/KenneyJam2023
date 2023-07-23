@@ -34,6 +34,9 @@ namespace Utility
         internal static void ReduceGoalCounter() 
         { 
             MobGoalCounter--; 
+
+            if (MobGoalCounter <= 0)
+                MobGoalCounter = 0;
         }
 
         internal static bool CheckForPlayerWin()
