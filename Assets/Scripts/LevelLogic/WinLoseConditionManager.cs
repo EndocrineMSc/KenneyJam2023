@@ -69,6 +69,8 @@ namespace Utility
         private void Update()
         {
             _scoreModifier += Time.deltaTime;
+            CheckForLoss(null);
+            CheckForWinWrap();
         }
 
         private int CalculateScore()
