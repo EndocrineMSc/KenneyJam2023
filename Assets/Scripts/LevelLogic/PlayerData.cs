@@ -49,6 +49,13 @@ namespace Utility
             Score = score;
         }
 
+        internal static void ResetState()
+        {
+            Currency = 200;
+            MobGoalCounter = 5;
+            Score = 0;
+        }
+
         #endregion
     }
 }

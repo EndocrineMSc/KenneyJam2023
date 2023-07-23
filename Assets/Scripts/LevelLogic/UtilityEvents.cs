@@ -9,6 +9,7 @@ namespace Utility
     {
         internal static event Action OnGameWon;
         internal static event Action OnGameLost;
+        internal static event Action OnGameStarted;
 
         internal static void RaiseGameWon()
         {
@@ -19,5 +20,10 @@ namespace Utility
         { 
             OnGameLost?.Invoke();
         }
+
+        internal static void GameStarted()
+        {
+            OnGameStarted?.Invoke();
+         }
     }
 }

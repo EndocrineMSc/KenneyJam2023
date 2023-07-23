@@ -19,6 +19,7 @@ namespace Utility
             CharacterEvents.OnCharacterDeath += CheckForLoss;
             UtilityEvents.OnGameWon += GameWon;
             UtilityEvents.OnGameLost += GameLost;
+            UtilityEvents.OnGameStarted += ResetScore;
         }
 
         private void OnDisable()
@@ -28,6 +29,7 @@ namespace Utility
             CharacterEvents.OnCharacterDeath -= CheckForLoss;
             UtilityEvents.OnGameWon -= GameWon;
             UtilityEvents.OnGameLost -= GameLost;
+            UtilityEvents.OnGameStarted -= ResetScore;
         }
 
         private void CheckForWinWrap()
@@ -73,12 +75,17 @@ namespace Utility
             CheckForWinWrap();
         }
 
+        private void ResetScore()
+        {
+            _scoreModifier = 0;
+        }
+
         private int CalculateScore()
         {
             var currency = PlayerData.Currency;
             var modifier = 1 / _scoreModifier;
 
-            var score = Mathf.RoundToInt((currency * 1000 + 10000) * modifier);
+            var score = Mathf.RoundToInt(((currency+CharacterSpawner.Instance.ActiveCharacters.Count) * 1000 + 10000) * modifier);
             return score;
         }
     }
