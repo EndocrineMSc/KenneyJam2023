@@ -37,7 +37,7 @@ namespace Characters
         protected virtual void Awake()
         {
             //Spawn Sound
-            AudioManager.Instance.PlaySFX("Spawn");
+            //AudioManager.Instance.PlaySFX("Spawn");
             InitializeData();
             _light = GetComponentInChildren<Light2D>();
             
