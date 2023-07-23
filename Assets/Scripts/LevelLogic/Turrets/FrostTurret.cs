@@ -13,7 +13,9 @@ namespace Towers
         protected override void Shoot()
         {
             base.Shoot();
-            currentTarget.GetComponent<Character>().SlowCharacter(SlowAmount);
+
+            if(currentTarget != null)
+                currentTarget.GetComponent<Character>().SlowCharacter(SlowAmount);
         }
 
         private void OnDrawGizmosSelected()
