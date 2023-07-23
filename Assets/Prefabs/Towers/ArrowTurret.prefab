@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 675485837470025789}
   - component: {fileID: 2899481224881877062}
   - component: {fileID: -2377923189804528677}
+  - component: {fileID: -6667000403644100991}
   m_Layer: 0
   m_Name: ArrowTurret
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   damage: 2
   attackSpeed: 0.8
   TravelSpeed: 40
+  TurretName: 0
   tooltipDescription: Basic Arrow Turret
 --- !u!61 &-2377923189804528677
 BoxCollider2D:
@@ -130,6 +132,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &-6667000403644100991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798547438781802290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f035730ff287de4fab0fded3bac7b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6998627417076946005
 GameObject:
   m_ObjectHideFlags: 0

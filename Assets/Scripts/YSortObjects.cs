@@ -10,7 +10,7 @@ namespace DreamCatcher.Graphics
         void Start()
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            //spriteRenderer.sortingOrder = transform.GetSortingOrder();
+            spriteRenderer.sortingOrder = transform.GetSortingOrder();
         }
     }
 }
