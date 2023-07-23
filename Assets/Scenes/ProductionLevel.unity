@@ -10714,6 +10714,10 @@ PrefabInstance:
       propertyPath: sfxSounds.Array.data[1].clip
       value: 
       objectReference: {fileID: 8300000, guid: a7a5f26b0b840c646bb5521c904c4439, type: 3}
+    - target: {fileID: 2438750355171650081, guid: 16e8d58a0943fd940b2970d25c4890e4, type: 3}
+      propertyPath: sfxSounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 57bfbafdbe17f62408630b9fc41ffc62, type: 3}
     - target: {fileID: 2438750355171650086, guid: 16e8d58a0943fd940b2970d25c4890e4, type: 3}
       propertyPath: m_RootOrder
       value: 21
