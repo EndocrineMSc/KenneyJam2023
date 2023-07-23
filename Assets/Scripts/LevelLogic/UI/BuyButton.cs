@@ -2,6 +2,7 @@ using Characters;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ namespace Utility
         [SerializeField] private Image _mobImage;
         private Button _button;
 
+        private float BuyCooldown;
+
         private void OnValidate()
         {
             InitializeButtonData();
@@ -26,6 +29,8 @@ namespace Utility
             InitializeButtonData();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(TryBuyMob);
+
+            BuyCooldown = Time.time;
         }
 
         private void InitializeButtonData()
@@ -43,6 +48,8 @@ namespace Utility
             {
                 CharacterSpawner.Instance.SpawnMob(_mobData.MobEnumEntry);
                 PlayerData.SpendCurrency(_mobData.Cost);
+                _button.interactable = false;
+                BuyCooldown = Time.time + (_mobData.Cost / 5);
             }
             else
             {
@@ -53,7 +60,8 @@ namespace Utility
 
         private void Update()
         {
-            _button.interactable = PlayerData.CheckForCurrency(_mobData.Cost);
+            if(Time.time > BuyCooldown)
+                _button.interactable = PlayerData.CheckForCurrency(_mobData.Cost);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
