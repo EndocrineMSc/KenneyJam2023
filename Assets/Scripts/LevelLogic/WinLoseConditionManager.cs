@@ -14,7 +14,6 @@ namespace Utility
 
         private void OnEnable()
         {
-            CharacterEvents.OnCharacterReachedGoal += CheckForWinWrap;
             CharacterEvents.OnCharacterReachedGoal += CheckForLoss;
             CharacterEvents.OnCharacterReachedGoal += ReduceGoalCounterWrap;
             CharacterEvents.OnCharacterDeath += CheckForLoss;
@@ -24,7 +23,6 @@ namespace Utility
 
         private void OnDisable()
         {
-            CharacterEvents.OnCharacterReachedGoal -= CheckForWinWrap;
             CharacterEvents.OnCharacterReachedGoal -= CheckForLoss;
             CharacterEvents.OnCharacterReachedGoal -= ReduceGoalCounterWrap;
             CharacterEvents.OnCharacterDeath -= CheckForLoss;
@@ -32,7 +30,7 @@ namespace Utility
             UtilityEvents.OnGameLost -= GameLost;
         }
 
-        private void CheckForWinWrap(GameObject go)
+        private void CheckForWinWrap()
         {
             if (PlayerData.CheckForPlayerWin())
                 UtilityEvents.RaiseGameWon();
@@ -58,6 +56,7 @@ namespace Utility
         private void ReduceGoalCounterWrap(GameObject go)
         {
             PlayerData.ReduceGoalCounter();
+            CheckForWinWrap();
         }
 
         private IEnumerator LoadWithFade(SceneName sceneName)
