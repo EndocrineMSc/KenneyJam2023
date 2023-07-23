@@ -41,7 +41,7 @@ namespace Characters
             _animator = GetComponent<Animator>();
         }
 
-        protected void InitializeData()
+        protected virtual void InitializeData()
         {
             if (_mobData != null)
             {

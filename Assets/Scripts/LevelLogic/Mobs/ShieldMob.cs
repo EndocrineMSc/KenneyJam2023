@@ -14,17 +14,20 @@ namespace Characters
 
         protected override void SubtractDamage(int damage)
         {
-            if (CurrentShield > 0)
+            if (CurrentShield > 0) {
                 CurrentShield -= damage;
+                if (CurrentShield < 0)
+                    CurrentShield = 0;
+            }              
             else
                 Health -= damage;
 
-            if (CurrentShield < 0)
-            {
-                var remainingDamage = Mathf.Abs(CurrentShield);
-                CurrentShield = 0;
-                Health -= remainingDamage;
-            }
+        }
+
+        protected override void InitializeData()
+        {
+            base.InitializeData();
+            CurrentShield = MaxShield;
         }
 
         protected override void OnDamageEffect()
