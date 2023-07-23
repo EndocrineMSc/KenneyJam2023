@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Utility;
 
@@ -8,6 +9,7 @@ namespace Characters
     internal class ScavengerMob : Character
     {
         [SerializeField] private CurrencyPopup _currencyPrefab;
+        private float _range = 1.5f;
 
         private void OnEnable()
         {
@@ -46,6 +48,26 @@ namespace Characters
                 Instantiate(_currencyPrefab, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.2f);
             }
+        }
+
+        private void Update()
+        {
+            if (!_isDead)
+            {
+                var highestPrioCharacter = MapControllerHelper.FindHighestPriorityInRange(transform.position, _range);
+                if (highestPrioCharacter != null && highestPrioCharacter != this.gameObject)
+                    MovementSpeed = highestPrioCharacter.GetComponent<Character>().MovementSpeed;
+                else
+                    MovementSpeed = _maxMovementSpeed;
+            }
+            else
+                MovementSpeed = 0;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(transform.position, _range);
         }
     }
 }
