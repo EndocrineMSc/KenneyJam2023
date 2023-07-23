@@ -15,7 +15,7 @@ namespace Characters
         internal int TargetPriority;
         internal int MaxHealth;
         internal int Health { get; private protected set; }
-        private float _maxMovementSpeed = 2;
+        protected float _maxMovementSpeed = 2;
         internal float MovementSpeed { get; private protected set; }
         internal bool LightFadesOnDeath;
         public Mob MobEnumEntry;
@@ -23,6 +23,8 @@ namespace Characters
         protected Light2D _light;
         protected readonly float _waitTillDeathTime = 2;
         protected Animator _animator;
+
+        protected bool _isDead;
         #endregion
 
         #region Functions
@@ -83,7 +85,8 @@ namespace Characters
         }
 
         internal IEnumerator Die(bool hasReachedGoal = false)
-        {      
+        {
+            _isDead = true;
             if(!hasReachedGoal)
             {
                 CharacterEvents.RaiseDeath(gameObject);

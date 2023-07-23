@@ -39,7 +39,7 @@ namespace Utility
 
         private void CheckForLoss(GameObject go)
         {
-            if (PlayerData.Currency < 4)
+            if (PlayerData.Currency < 4 && CharacterSpawner.Instance.ActiveCharacters.Count == 0)
                 UtilityEvents.RaiseGameLost();
         }
 

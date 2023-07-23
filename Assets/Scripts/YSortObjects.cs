@@ -6,11 +6,17 @@ namespace DreamCatcher.Graphics
 {
     public class YSortObjects : MonoBehaviour
     {
+        private SpriteRenderer _spriteRenderer;
+
         // Start is called before the first frame update
         void Start()
         {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sortingOrder = transform.GetSortingOrder();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            _spriteRenderer.sortingOrder = transform.GetSortingOrder();          
         }
     }
 }
