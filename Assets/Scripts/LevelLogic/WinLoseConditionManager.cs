@@ -77,7 +77,7 @@ namespace Utility
             var currency = PlayerData.Currency;
             var modifier = 1 / _scoreModifier;
 
-            var score = Mathf.RoundToInt(currency * modifier);
+            var score = Mathf.RoundToInt((currency * 1000 + 10000) * modifier);
             return score;
         }
     }
