@@ -92,7 +92,7 @@ namespace Characters
 
         public int CompareTo(CharacterMovement other)
         {
-            if(other == null) return 1;
+            if(other == null || this.GetComponent<Character>() == null) return 1;
 
             float myDistance = Vector2.Distance(this.transform.position, _waypoints[TargetWaypointIndex]);
             float otherDistance = Vector2.Distance(other.transform.position, other._waypoints[other.TargetWaypointIndex]);

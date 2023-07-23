@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 namespace Towers
@@ -43,6 +44,9 @@ namespace Towers
         protected virtual void SelectTarget()
         {
             currentTarget = MapControllerHelper.FindFurthestAdvancedCharacterInRange(this.gameObject.transform.position, Range);
+
+            if (currentTarget.GetComponent<Characters.Character>() == null)
+                currentTarget = null;
         }
 
         protected virtual void Shoot()
