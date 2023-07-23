@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
   m_Name: HealerMob
   m_EditorClassIdentifier: 
-  Cost: 8
+  Cost: 14
   TargetPriority: 3
   MaxHealth: 7
   MovementSpeedMultiplier: 1

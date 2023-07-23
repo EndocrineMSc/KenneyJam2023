@@ -20,7 +20,7 @@ namespace Towers {
             if (currentTarget == null)
             {
                 currentTarget = MapControllerHelper.FindHighestPriorityInRange(this.transform.position, Range);
-                nextShoot = Time.time + ReadyTime; // CA-CHUNK gun ready sound?
+                nextShoot = Time.time + attackSpeed + ReadyTime; // CA-CHUNK gun ready sound?
             }                
             else if (MapControllerHelper.GetDistance(this.transform.position, currentTarget.transform.position) > Range)
             {

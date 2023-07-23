@@ -106,7 +106,7 @@ MonoBehaviour:
   TravelSpeed: 40
   TurretName: 3
   tooltipDescription: Slows mobs when they are hit
-  SlowAmount: 0.8
+  SlowAmount: 0.6
 --- !u!61 &5804576335085399263
 BoxCollider2D:
   m_ObjectHideFlags: 0
