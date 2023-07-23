@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Towers { 
     internal class SniperTower : Tower
     {
+        public float ReadyTime;
+
         protected override void Shoot()
         {
             base.Shoot();
@@ -15,7 +17,10 @@ namespace Towers {
         {
             // Shoots until it kills or target leaves range
             if (currentTarget == null)
+            {
                 currentTarget = MapControllerHelper.FindHighestPriorityInRange(this.transform.position, Range);
+                nextShoot = Time.time + ReadyTime; // CA-CHUNK gun ready sound?
+            }                
             else if (MapControllerHelper.GetDistance(this.transform.position, currentTarget.transform.position) > Range)
             {
                 currentTarget = null;

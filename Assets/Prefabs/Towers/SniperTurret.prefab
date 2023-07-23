@@ -105,6 +105,7 @@ MonoBehaviour:
   TravelSpeed: 60
   TurretName: 4
   tooltipDescription: Long range, high damage but slow
+  ReadyTime: 0.3
 --- !u!61 &-1044527557066051329
 BoxCollider2D:
   m_ObjectHideFlags: 0
