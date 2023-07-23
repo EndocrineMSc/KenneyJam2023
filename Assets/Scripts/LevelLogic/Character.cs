@@ -36,10 +36,11 @@ namespace Characters
 
         protected virtual void Awake()
         {
-            InitializeData();
-            _light = GetComponentInChildren<Light2D>();
             //Spawn Sound
             AudioManager.Instance.PlaySFX("Spawn");
+            InitializeData();
+            _light = GetComponentInChildren<Light2D>();
+            
             _animator = GetComponent<Animator>();
         }
 
@@ -86,6 +87,7 @@ namespace Characters
 
         internal IEnumerator Die(bool hasReachedGoal = false)
         {
+            AudioManager.Instance.PlaySFX("Death");
             _isDead = true;
             if(!hasReachedGoal)
             {
@@ -100,9 +102,7 @@ namespace Characters
             HandleDeathLight();
             FadeSprite();
             yield return new WaitForSeconds(_waitTillDeathTime);
-
-            //Death Sound
-            AudioManager.Instance.PlaySFX("Death");
+            
 
             Destroy(gameObject);
 
