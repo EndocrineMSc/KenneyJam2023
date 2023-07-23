@@ -103,7 +103,7 @@ MonoBehaviour:
   Range: 1.3
   damage: 2
   attackSpeed: 0.8
-  TravelSpeed: 40
+  TravelSpeed: 10
   TurretName: 0
   tooltipDescription: Basic Arrow Turret
 --- !u!61 &-2377923189804528677
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 6335732940154187119}
   - component: {fileID: 1735038949440383760}
   - component: {fileID: 1147904342980514900}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

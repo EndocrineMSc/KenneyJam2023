@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0702cd720f95d364e906bb1c043d88af, type: 3}
   m_Name: SprinterMobData
   m_EditorClassIdentifier: 
-  Cost: 5
+  Cost: 11
   TargetPriority: 2
   MaxHealth: 6
   MovementSpeedMultiplier: 2

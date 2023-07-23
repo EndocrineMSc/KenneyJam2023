@@ -22,7 +22,7 @@ namespace Towers
             // Shoots until it kills or target leaves range
             if (currentTarget == null) { 
                 base.SelectTarget();
-                nextShoot = Time.time + ReadyTime; // CA-CHUNK gun ready sound?
+                nextShoot = Time.time + attackSpeed + ReadyTime; // CA-CHUNK gun ready sound?
             }       
             else if (MapControllerHelper.GetDistance(this.transform.position, currentTarget.transform.position) > Range)
             {

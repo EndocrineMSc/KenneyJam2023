@@ -100,13 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4364500b00f349478aba643f0d4198c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 0.75
+  Range: 1.4
   damage: 1
-  attackSpeed: 0.2
+  attackSpeed: 0.3
   TravelSpeed: 40
   TurretName: 1
   tooltipDescription: Machine gun turret. Will destroy your mobs.
-  ReadyTime: 0
+  ReadyTime: 0.4
 --- !u!61 &-308954767993375771
 BoxCollider2D:
   m_ObjectHideFlags: 0

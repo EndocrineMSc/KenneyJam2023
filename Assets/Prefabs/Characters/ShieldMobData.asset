@@ -26,9 +26,9 @@ MonoBehaviour:
     Generates shield for itself over time.
 
     Starts
-    with the maximum 20 shield.
+    with the maximum 30 shield.
 
 
-    Health: 4
+    Health: 4 (+30)
 
     Speed: 1'

@@ -35,7 +35,7 @@ namespace Characters
             if (characterObject != this.gameObject)
             {
                 PlayerData.AddCurrency(amountCurrency);
-                StartCoroutine(SpawnCoins(amountCurrency));
+                StartCoroutine  (SpawnCoins(amountCurrency));
             }
         }
 
